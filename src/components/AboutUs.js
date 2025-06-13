@@ -86,7 +86,7 @@ export default function AboutUs({ slice }) {
                         className="build_button mt-40"
                         href={button.url}
                         target={button.target || undefined}
-                        style={{ textDecoration: 'none' }}
+                        style={{ textDecoration: "none" }}
                       >
                         {button.text || "Discover more"}
                         <i className="flaticon-right-up"></i>

@@ -33,6 +33,17 @@
             "placeholder": ""
           }
         },
+        "button": {
+          "type": "Link",
+          "config": {
+            "label": "Main Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
         "service": {
           "type": "Group",
           "config": {
@@ -51,6 +62,13 @@
                 "config": {
                   "label": "Content",
                   "placeholder": ""
+                }
+              },
+              "icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": "e.g. flaticon-it-department"
                 }
               },
               "button": {

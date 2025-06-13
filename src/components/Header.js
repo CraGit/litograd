@@ -39,10 +39,7 @@ export function Header({ locales = [], navigation, settings }) {
                 <Link href={homeUrl}>
                   <span className="visually-hidden">Go to homepage</span>
                   {prismic.isFilled.image(settings.data.logo) ? (
-                    <PrismicNextImage
-                      field={settings.data.logo}
-                      alt="Logo"
-                    />
+                    <PrismicNextImage field={settings.data.logo} alt="Logo" />
                   ) : (
                     <img src="/assets/img/logo-1.png" alt="BuildGo" />
                   )}
@@ -53,7 +50,7 @@ export function Header({ locales = [], navigation, settings }) {
             {/* Center - Navigation Menu */}
             <div className="header__area-menubar-center">
               <div className="header__area-menubar-center-menu">
-                <ul style={{ gap: '20px', justifyContent: 'flex-end' }}>
+                <ul style={{ gap: "20px", justifyContent: "flex-end" }}>
                   {navigation.data?.links.map((item) => (
                     <li key={prismic.asText(item.label)}>
                       <PrismicNextLink field={item.link}>

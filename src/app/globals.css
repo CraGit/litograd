@@ -462,3 +462,76 @@ body.sidebar-open {
 }
 
 /* Mobile menu fixes continued */
+
+/* Services Component Enhancements */
+.services__one-item {
+  cursor: pointer !important;
+  transition: all 0.3s ease;
+}
+
+.services__one-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: var(--color-1) !important;
+}
+
+.services__one-item:hover h4,
+.services__one-item:hover h4 a,
+.services__one-item:hover p {
+  color: var(--text-white) !important;
+}
+
+.services__one-item:hover .more_btn {
+  color: var(--primary-color-1) !important;
+}
+
+.services__one-item:hover .services__one-item-icon i {
+  color: var(--primary-color-1) !important;
+}
+
+.services__one-item p {
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Ensure grid layout services have equal height */
+.services__one .row .col-lg-4 .services__one-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.services__one .row .col-lg-4 .services__one-item .more_btn {
+  margin-top: auto;
+}
+
+/* Fix icon positioning */
+.services__one-item-icon {
+  margin-bottom: 20px;
+}
+
+.services__one-item-icon i {
+  font-size: 60px !important;
+  color: var(--text-heading-color);
+  transition: 0.4s;
+}
+
+.services__one-item:hover .services__one-item-icon i {
+  color: var(--primary-color-1) !important;
+}
+
+/* Swiper cursor fix */
+.swiper {
+  cursor: grab;
+}
+
+.swiper:active {
+  cursor: grabbing;
+}
+
+/* Disable swiper cursor when not using swiper */
+.services__one [data-cursor-text=""] {
+  cursor: default !important;
+}
