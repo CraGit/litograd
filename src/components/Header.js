@@ -31,70 +31,66 @@ export function Header({ locales = [], navigation, settings }) {
     <>
       <HeaderClient />
       <div className="header__area">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="header__area-menubar">
-                {/* Left - Logo */}
-                <div className="header__area-menubar-left">
-                  <div className="header__area-menubar-left-logo">
-                    <Link href={homeUrl}>
-                      <span className="visually-hidden">Go to homepage</span>
-                      {prismic.isFilled.image(settings.data.logo) ? (
-                        <PrismicNextImage
-                          field={settings.data.logo}
-                          alt="Logo"
-                        />
-                      ) : (
-                        <img src="/assets/img/logo-1.png" alt="BuildGo" />
-                      )}
-                    </Link>
-                  </div>
-                </div>
+        <div className="custom_container">
+          <div className="header__area-menubar">
+            {/* Left - Logo */}
+            <div className="header__area-menubar-left one">
+              <div className="header__area-menubar-left-logo">
+                <Link href={homeUrl}>
+                  <span className="visually-hidden">Go to homepage</span>
+                  {prismic.isFilled.image(settings.data.logo) ? (
+                    <PrismicNextImage
+                      field={settings.data.logo}
+                      alt="Logo"
+                    />
+                  ) : (
+                    <img src="/assets/img/logo-1.png" alt="BuildGo" />
+                  )}
+                </Link>
+              </div>
+            </div>
 
-                {/* Center - Navigation Menu */}
-                <div className="header__area-menubar-center">
-                  <div className="header__area-menubar-center-menu">
-                    <ul>
-                      {navigation.data?.links.map((item) => (
-                        <li key={prismic.asText(item.label)}>
-                          <PrismicNextLink field={item.link}>
-                            <PrismicText field={item.label} />
-                          </PrismicNextLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Right - Language switcher and action buttons */}
-                <div className="header__area-menubar-right">
-                  {/* Language Switcher */}
-                  <LanguageSwitcher locales={locales} />
-
-                  {/* CTA Button */}
-                  <div className="header__area-menubar-right-btn">
-                    {prismic.isFilled.link(settings.data.quote) ? (
-                      <PrismicNextLink
-                        field={settings.data.quote}
-                        className="build_button"
-                      >
-                        {settings.data.quote.text || "Get Quote"}
-                        <i className="fas fa-arrow-right"></i>
+            {/* Center - Navigation Menu */}
+            <div className="header__area-menubar-center">
+              <div className="header__area-menubar-center-menu">
+                <ul style={{ gap: '20px', justifyContent: 'flex-end' }}>
+                  {navigation.data?.links.map((item) => (
+                    <li key={prismic.asText(item.label)}>
+                      <PrismicNextLink field={item.link}>
+                        <PrismicText field={item.label} />
                       </PrismicNextLink>
-                    ) : (
-                      <a href="#contact" className="build_button">
-                        Get Quote
-                        <i className="fas fa-arrow-right"></i>
-                      </a>
-                    )}
-                  </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-                  {/* Mobile Menu Toggle */}
-                  <div className="header__area-menubar-right-sidebar-icon d-lg-none">
-                    <i className="fas fa-bars"></i>
-                  </div>
-                </div>
+            {/* Right - Language switcher and action buttons */}
+            <div className="header__area-menubar-right">
+              {/* Language Switcher */}
+              <LanguageSwitcher locales={locales} />
+
+              {/* CTA Button */}
+              <div className="header__area-menubar-right-btn one">
+                {prismic.isFilled.link(settings.data.quote) ? (
+                  <PrismicNextLink
+                    field={settings.data.quote}
+                    className="build_button"
+                  >
+                    {settings.data.quote.text || "Get Quote"}
+                    <i className="flaticon-right-up"></i>
+                  </PrismicNextLink>
+                ) : (
+                  <a href="#contact" className="build_button">
+                    Get Quote
+                    <i className="flaticon-right-up"></i>
+                  </a>
+                )}
+              </div>
+
+              {/* Mobile Menu Toggle */}
+              <div className="header__area-menubar-right-sidebar-icon d-lg-none">
+                <i className="fas fa-bars"></i>
               </div>
             </div>
           </div>

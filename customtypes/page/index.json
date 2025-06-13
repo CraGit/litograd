@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "services_slice": {
+              "type": "SharedSlice"
+            },
             "about_us_slice": {
               "type": "SharedSlice"
             },
