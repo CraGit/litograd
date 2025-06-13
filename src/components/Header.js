@@ -99,6 +99,22 @@ export function Header({ locales = [], navigation, settings }) {
           We are a company that focuses on construction, engineering, and
           architectural design.
         </p>
+
+        {/* Mobile Navigation Menu */}
+        <div className="header__area-menubar-right-sidebar-popup-menu">
+          <nav>
+            <ul>
+              {navigation.data?.links.map((item) => (
+                <li key={prismic.asText(item.label)}>
+                  <PrismicNextLink field={item.link}>
+                    <PrismicText field={item.label} />
+                  </PrismicNextLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
         <div className="header__area-menubar-right-sidebar-popup-contact">
           <h4>Get In Touch</h4>
           <div className="header__area-menubar-right-sidebar-popup-contact-item">

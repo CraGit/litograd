@@ -380,3 +380,78 @@ body.sidebar-open {
   box-shadow: none !important;
   outline: none !important;
 }
+
+/* Mobile Menu Fixes */
+.header__area-menubar-right-sidebar-popup {
+  max-width: 90vw !important;
+  width: 350px !important;
+  max-height: 100vh !important;
+  overflow-y: auto !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.header__area-menubar-right-sidebar-popup-menu {
+  margin: 20px 0;
+}
+
+.header__area-menubar-right-sidebar-popup-menu nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__area-menubar-right-sidebar-popup-menu nav ul li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.header__area-menubar-right-sidebar-popup-menu nav ul li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.header__area-menubar-right-sidebar-popup-menu nav ul li a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  transition: color 0.3s ease !important;
+  display: block !important;
+}
+
+.header__area-menubar-right-sidebar-popup-menu nav ul li a:hover {
+  color: var(--color-1) !important;
+}
+
+/* Fix mobile sidebar logo visibility */
+.header__area-menubar-right-sidebar-popup-logo {
+  margin-bottom: 20px !important;
+  padding: 10px !important;
+  text-align: left !important;
+}
+
+.header__area-menubar-right-sidebar-popup-logo img {
+  filter: invert(1) !important;
+  max-width: 150px !important;
+  height: auto !important;
+}
+
+/* Position close button better */
+.sidebar-close-btn {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  z-index: 999 !important;
+  cursor: pointer !important;
+}
+
+.sidebar-close-btn i {
+  font-size: 20px !important;
+  color: #ffffff !important;
+}
+
+/* Mobile menu fixes continued */
