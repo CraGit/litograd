@@ -4,20 +4,6 @@ import { useEffect } from "react";
 
 export function HeaderClient() {
   useEffect(() => {
-    // Sticky Header Functionality
-    const handleScroll = () => {
-      const header = document.querySelector(".header__area");
-      if (header) {
-        if (window.scrollY > 100) {
-          header.classList.add("header__sticky-sticky-menu");
-        } else {
-          header.classList.remove("header__sticky-sticky-menu");
-        }
-      }
-    };
-
-    // Search Box Toggle - REMOVED
-
     // Mobile Sidebar Toggle
     const sidebarIcon = document.querySelector(
       ".header__area-menubar-right-sidebar-icon"
@@ -36,11 +22,7 @@ export function HeaderClient() {
       }
     };
 
-    // Event Listeners
-    window.addEventListener("scroll", handleScroll);
-
-    // Search event listeners removed
-
+    // Event Listeners (no sticky header)
     if (sidebarIcon) {
       sidebarIcon.addEventListener("click", toggleSidebar);
     }
@@ -55,10 +37,6 @@ export function HeaderClient() {
 
     // Cleanup
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-
-      // Search cleanup removed
-
       if (sidebarIcon) {
         sidebarIcon.removeEventListener("click", toggleSidebar);
       }

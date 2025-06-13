@@ -22,6 +22,17 @@
           "thumbnails": [],
           "label": "Logo"
         }
+      },
+      "quote": {
+        "type": "Link",
+        "config": {
+          "label": "Quote",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
       }
     }
   }

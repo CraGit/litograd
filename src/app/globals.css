@@ -9,6 +9,13 @@
 @import "/assets/css/meanmenu.min.css";
 @import "/assets/sass/style.css";
 
+/* Hero Mobile Fix - Simple approach */
+@media (max-width: 767px) {
+  .banner__one-image {
+    margin-top: -40px !important;
+  }
+}
+
 /* Custom Header Enhancements */
 .header__area-menubar-right-language {
   margin-right: 20px;

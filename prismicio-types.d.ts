@@ -61,7 +61,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroSliceSlice;
+type PageDocumentDataSlicesSlice = AboutUsSliceSlice | HeroSliceSlice;
 
 /**
  * Content for Page documents
@@ -158,6 +158,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   logo: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.quote
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  quote: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -180,6 +191,141 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AboutUsSlice → Default → Primary*
+ */
+export interface AboutUsSliceSliceDefaultPrimary {
+  /**
+   * Heading field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Overtitle field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Content field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * Subheading One field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.subheadingOne
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadingOne: prismic.KeyTextField;
+
+  /**
+   * Content One field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.contentOne
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contentOne: prismic.KeyTextField;
+
+  /**
+   * Subheading Two field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.subheadingTwo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheadingTwo: prismic.KeyTextField;
+
+  /**
+   * Content Two field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.contentTwo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contentTwo: prismic.KeyTextField;
+
+  /**
+   * Button field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Image Left field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.imageLeft
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imageLeft: prismic.ImageField<never>;
+
+  /**
+   * Image Right field in *AboutUsSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us_slice.default.primary.imageRight
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imageRight: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutUsSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutUsSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutUsSlice*
+ */
+type AboutUsSliceSliceVariation = AboutUsSliceSliceDefault;
+
+/**
+ * AboutUsSlice Shared Slice
+ *
+ * - **API ID**: `about_us_slice`
+ * - **Description**: AboutUsSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutUsSliceSlice = prismic.SharedSlice<
+  "about_us_slice",
+  AboutUsSliceSliceVariation
+>;
 
 /**
  * Primary content in *HeroSlice → Default → Primary*
@@ -276,6 +422,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      AboutUsSliceSlice,
+      AboutUsSliceSliceDefaultPrimary,
+      AboutUsSliceSliceVariation,
+      AboutUsSliceSliceDefault,
       HeroSliceSlice,
       HeroSliceSliceDefaultPrimary,
       HeroSliceSliceVariation,

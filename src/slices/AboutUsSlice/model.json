@@ -1,0 +1,95 @@
+{
+  "id": "about_us_slice",
+  "type": "SharedSlice",
+  "name": "AboutUsSlice",
+  "description": "AboutUsSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "overtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Overtitle",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "Text",
+          "config": {
+            "label": "Content",
+            "placeholder": ""
+          }
+        },
+        "subheadingOne": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading One",
+            "placeholder": ""
+          }
+        },
+        "contentOne": {
+          "type": "Text",
+          "config": {
+            "label": "Content One",
+            "placeholder": ""
+          }
+        },
+        "subheadingTwo": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading Two",
+            "placeholder": ""
+          }
+        },
+        "contentTwo": {
+          "type": "Text",
+          "config": {
+            "label": "Content Two",
+            "placeholder": ""
+          }
+        },
+        "button": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "imageLeft": {
+          "type": "Image",
+          "config": {
+            "label": "Image Left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "imageRight": {
+          "type": "Image",
+          "config": {
+            "label": "Image Right",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

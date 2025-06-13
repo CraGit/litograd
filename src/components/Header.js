@@ -74,10 +74,20 @@ export function Header({ locales = [], navigation, settings }) {
 
                   {/* CTA Button */}
                   <div className="header__area-menubar-right-btn">
-                    <a href="#contact" className="build_button">
-                      Get Quote
-                      <i className="fas fa-arrow-right"></i>
-                    </a>
+                    {prismic.isFilled.link(settings.data.quote) ? (
+                      <PrismicNextLink
+                        field={settings.data.quote}
+                        className="build_button"
+                      >
+                        {settings.data.quote.text || "Get Quote"}
+                        <i className="fas fa-arrow-right"></i>
+                      </PrismicNextLink>
+                    ) : (
+                      <a href="#contact" className="build_button">
+                        Get Quote
+                        <i className="fas fa-arrow-right"></i>
+                      </a>
+                    )}
                   </div>
 
                   {/* Mobile Menu Toggle */}

@@ -65,22 +65,7 @@ function SignUpForm({ settings }) {
 export function Footer({ settings }) {
   return (
     <Bounded as="footer" className="bg-dark text-light py-5">
-      <div className="row justify-content-center">
-        <div className="col-12">
-          <SignUpForm settings={settings} />
-        </div>
-        <div className="col-12 text-center mt-4">
-          <p className="small mb-0">
-            Proudly published using{" "}
-            <PrismicNextLink
-              href="https://prismic.io"
-              className="text-white text-decoration-none"
-            >
-              Prismic
-            </PrismicNextLink>
-          </p>
-        </div>
-      </div>
+      footer
     </Bounded>
   );
 }
