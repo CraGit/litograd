@@ -61,7 +61,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice = HeroSliceSlice;
 
 /**
  * Content for Page documents
@@ -158,28 +158,6 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   logo: prismic.ImageField<never>;
-
-  /**
-   * Newsletter Description field in *Settings*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Text above the sign up form
-   * - **API ID Path**: settings.newsletterDescription
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  newsletterDescription: prismic.RichTextField;
-
-  /**
-   * Newsletter Disclaimer field in *Settings*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Small text below sign up form
-   * - **API ID Path**: settings.newsletterDisclaimer
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  newsletterDisclaimer: prismic.RichTextField;
 }
 
 /**
@@ -202,6 +180,71 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *HeroSlice → Default → Primary*
+ */
+export interface HeroSliceSliceDefaultPrimary {
+  /**
+   * Heading field in *HeroSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Subheading field in *HeroSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_slice.default.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading: prismic.KeyTextField;
+
+  /**
+   * Image field in *HeroSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_slice.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroSlice*
+ */
+type HeroSliceSliceVariation = HeroSliceSliceDefault;
+
+/**
+ * HeroSlice Shared Slice
+ *
+ * - **API ID**: `hero_slice`
+ * - **Description**: HeroSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceSlice = prismic.SharedSlice<
+  "hero_slice",
+  HeroSliceSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -233,6 +276,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      HeroSliceSlice,
+      HeroSliceSliceDefaultPrimary,
+      HeroSliceSliceVariation,
+      HeroSliceSliceDefault,
     };
   }
 }
