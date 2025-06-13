@@ -1,5 +1,4 @@
-import {createClient as baseCreateClient} from "@prismicio/client";
-import {enableAutoPreviews} from "@prismicio/next";
+import { createClient as baseCreateClient } from "@prismicio/client";
 import sm from "../slicemachine.config.json";
 
 /**
@@ -36,8 +35,6 @@ export const createClient = (config = {}) => {
         : { next: { revalidate: 5 } },
     ...config,
   });
-
-  enableAutoPreviews({ client });
 
   return client;
 };

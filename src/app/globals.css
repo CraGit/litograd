@@ -1,15 +1,382 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "/assets/css/fontawesome.css";
+@import "/assets/font/flaticon_flexitype.css";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "swiper/css/bundle";
+@import "/assets/css/animate.css";
+@import 'react-modal-video/css/modal-video.min.css';
+@import "/assets/css/meanmenu.min.css";
+@import "/assets/sass/style.css";
 
-@theme {
-  --font-*: initial;
-  --font-sans:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* Custom Header Enhancements */
+.header__area-menubar-right-language {
+  margin-right: 20px;
 }
 
-[data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white,
-[data-collapsible="true"].bg-slate-100
-  + [data-collapsible="true"].bg-slate-100 {
-  @apply pt-0 md:pt-0;
+/* Fix navigation links - remove underlines and proper styling */
+.header__area-menubar-center-menu ul li a {
+  text-decoration: none !important;
+  color: var(--text-heading-color) !important;
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  transition: 0.4s;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.header__area-menubar-center-menu ul li a:hover {
+  color: var(--color-1) !important;
+  text-decoration: none !important;
+}
+
+/* Fix button positioning and ensure it shows properly */
+.header__area-menubar-right-btn .build_button {
+  display: inline-flex !important;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.4s;
+  font-family: var(--heading-font);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: var(--color-1);
+  background: var(--primary-color-1);
+  border-radius: 50px;
+  padding: 8px 8px 8px 30px;
+  gap: 20px;
+  text-decoration: none !important;
+}
+
+/* Remove the ::before override that was causing issues */
+.header__area-menubar-right-btn .build_button:hover {
+  color: var(--text-white);
+}
+
+/* Ensure button icon styling */
+.header__area-menubar-right-btn .build_button i {
+  position: relative;
+  z-index: 2;
+  transition: 0.4s;
+  color: var(--color-1);
+  background: var(--color-4);
+  font-size: 26px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+/* Language dropdown styling - remove globe icon styles */
+.header__area-menubar-right-language .btn-link {
+  color: var(--text-heading-color) !important;
+  text-decoration: none !important;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.header__area-menubar-right-language .btn-link:hover {
+  color: var(--color-1) !important;
+  text-decoration: none !important;
+}
+
+/* Language switcher dropdown fixes */
+.header__area-menubar-right-language {
+  position: relative;
+  margin-right: 20px;
+}
+
+.header__area-menubar-right-language .dropdown {
+  position: relative;
+}
+
+.header__area-menubar-right-language .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 6rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--bs-dropdown-color);
+  text-align: left;
+  list-style: none;
+  background-color: var(--bs-dropdown-bg);
+  background-clip: padding-box;
+  border: 1px solid var(--bs-dropdown-border-color);
+  border-radius: var(--bs-dropdown-border-radius);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.header__area-menubar-right-language .dropdown-menu.show {
+  display: block;
+}
+
+.header__area-menubar-right-language .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  clear: both;
+  font-weight: 400;
+  color: var(--bs-dropdown-link-color);
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.header__area-menubar-right-language .dropdown-item:hover,
+.header__area-menubar-right-language .dropdown-item:focus {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: var(--bs-dropdown-link-hover-bg);
+  text-decoration: none;
+}
+
+.header__area-menubar-right-language .btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.header__area-menubar-right-language .btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.header__area-menubar-right-language .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+/* Search icon styling - REMOVED */
+
+.header__area-menubar-right-search-box {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box.active {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box form {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box.active form {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box input {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box input:focus {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box button {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box-icon {
+  /* Search functionality removed */
+}
+
+.header__area-menubar-right-search-box-icon i {
+  /* Search functionality removed */
+}
+
+/* Sidebar Popup Styles */
+.header__area-menubar-right-sidebar-popup-contact {
+  margin: 40px 0;
+}
+
+.header__area-menubar-right-sidebar-popup-contact h4 {
+  color: var(--text-white);
+  margin-bottom: 30px;
+}
+
+.header__area-menubar-right-sidebar-popup-contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.header__area-menubar-right-sidebar-popup-contact-item-icon {
+  background: var(--primary-color-1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.header__area-menubar-right-sidebar-popup-contact-item-icon i {
+  color: var(--color-1);
+  font-size: 18px;
+}
+
+.header__area-menubar-right-sidebar-popup-contact-item-content span {
+  color: var(--color-6);
+  font-size: 14px;
+  display: block;
+}
+
+.header__area-menubar-right-sidebar-popup-contact-item-content h6 {
+  color: var(--text-white);
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+.header__area-menubar-right-sidebar-popup-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.header__area-menubar-right-sidebar-popup-social a {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-1);
+  transition: 0.3s;
+}
+
+.header__area-menubar-right-sidebar-popup-social a:hover {
+  background: var(--color-5);
+  color: var(--text-white);
+}
+
+/* Prevent body scroll when sidebar is open */
+body.sidebar-open {
+  overflow: hidden;
+}
+
+/* Override Bootstrap link defaults for header */
+.header__area a,
+.header__area a:hover,
+.header__area a:focus,
+.header__area a:visited {
+  text-decoration: none !important;
+}
+
+/* Ensure proper header layout spacing */
+.header__area-menubar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__area-menubar-center {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.header__area-menubar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Additional Bootstrap overrides for clean header appearance */
+.header__area .btn:focus,
+.header__area .btn:active {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.header__area .dropdown-toggle::after {
+  vertical-align: 0.155em;
+  margin-left: 0.5em;
+}
+
+/* Globe icon removed */
+
+/* Ensure proper button appearance before hover - use template defaults */
+/* Removed custom ::before that was interfering with template styles */
+
+/* Ensure logo proper sizing */
+.header__area-menubar-left-logo img {
+  max-width: 170px;
+  height: auto;
+}
+
+/* Navigation menu spacing */
+.header__area-menubar-center-menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.header__area-menubar-center-menu ul li {
+  position: relative;
+}
+
+/* Fix mobile responsive behavior */
+@media (max-width: 991.98px) {
+  .header__area-menubar-center {
+    display: none;
+  }
+  
+  .header__area-menubar-right {
+    gap: 10px;
+  }
+  
+  .header__area-menubar-right-language {
+    margin-right: 5px;
+  }
+}
+
+/* Language Switcher Custom Styling */
+.header__area-menubar-right-language .dropdown .btn {
+  border: none !important;
+  background: transparent !important;
+  color: var(--text-heading-color) !important;
+  font-weight: 600 !important;
+  padding: 6px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.header__area-menubar-right-language .dropdown .btn:hover,
+.header__area-menubar-right-language .dropdown .btn:focus,
+.header__area-menubar-right-language .dropdown .btn:active {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
 }

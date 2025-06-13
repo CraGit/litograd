@@ -11,14 +11,16 @@ export function Bounded({
     <Comp
       data-collapsible={collapsible}
       className={clsx(
-        "px-6",
-        yPadding === undefined && "py-20 md:py-32",
-        yPadding === "sm" && "py-8 md:py-10",
-        yPadding === "base" && "py-20 md:py-32",
-        className,
+        "px-3 px-md-4",
+        yPadding === undefined && "py-5 py-md-6",
+        yPadding === "sm" && "py-3 py-md-4",
+        yPadding === "base" && "py-5 py-md-6",
+        className
       )}
     >
-      <div className="mx-auto w-full max-w-6xl">{children}</div>
+      <div className="container-fluid" style={{ maxWidth: "1200px" }}>
+        {children}
+      </div>
     </Comp>
   );
 }

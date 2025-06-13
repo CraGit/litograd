@@ -8,55 +8,51 @@ import { PrismicRichText } from "./PrismicRichText";
 
 function SignUpForm({ settings }) {
   return (
-    <div className="px-4">
+    <div className="px-3">
       <form
         action="/api/sign-up"
         method="post"
-        className="grid w-full max-w-xl grid-cols-1 gap-6"
+        className="row g-3 justify-content-center"
+        style={{ maxWidth: "600px", margin: "0 auto" }}
       >
         {prismic.isFilled.richText(settings.data.newsletterDisclaimer) && (
-          <div className="text-center tracking-tight text-slate-300">
+          <div className="col-12 text-center text-light">
             <PrismicRichText
               field={settings.data.newsletterDescription}
               components={{
                 heading1: ({ children }) => (
-                  <Heading
-                    as="h2"
-                    size="6xl"
-                    className="mb-4 text-white last:mb-0"
-                  >
+                  <Heading as="h2" size="6xl" className="mb-3 text-white">
                     {children}
                   </Heading>
                 ),
-                paragraph: ({ children }) => (
-                  <p className="mb-4 last:mb-0">{children}</p>
-                ),
+                paragraph: ({ children }) => <p className="mb-3">{children}</p>,
               }}
             />
           </div>
         )}
-        <div className="grid grid-cols-1 gap-2">
-          <div className="relative">
+        <div className="col-12">
+          <div className="position-relative">
             <label>
-              <span className="sr-only">Email address</span>
+              <span className="visually-hidden">Email address</span>
               <input
                 name="email"
                 type="email"
                 placeholder="jane.doe@example.com"
                 required={true}
-                className="w-full rounded-sm border border-slate-500 bg-slate-600 py-3 pl-3 pr-10 text-white placeholder-slate-400"
+                className="form-control py-3 pe-5 bg-dark border-secondary text-white"
+                style={{ paddingRight: "50px" }}
               />
             </label>
             <button
               type="submit"
-              className="absolute bottom-0 right-0 top-0 flex items-center justify-center px-3 text-2xl text-slate-400"
+              className="btn position-absolute top-0 end-0 h-100 px-3 text-secondary border-0 bg-transparent"
             >
-              <span className="sr-only">Submit</span>
+              <span className="visually-hidden">Submit</span>
               <span aria-hidden={true}>&rarr;</span>
             </button>
           </div>
           {prismic.isFilled.richText(settings.data.newsletterDisclaimer) && (
-            <p className="text-center text-xs text-slate-400">
+            <p className="text-center small text-muted mt-2">
               <PrismicText field={settings.data.newsletterDisclaimer} />
             </p>
           )}
@@ -68,14 +64,21 @@ function SignUpForm({ settings }) {
 
 export function Footer({ settings }) {
   return (
-    <Bounded as="footer" className="bg-gray-800 pb-12 text-slate-300 md:pb-12">
-      <div className="grid grid-cols-1 justify-items-center gap-20 md:gap-24">
-        <SignUpForm settings={settings} />
-        <div className="mx-auto w-full max-w-3xl text-center text-xs font-semibold tracking-tight">
-          Proudly published using{" "}
-          <PrismicNextLink href="https://prismic.io" className="text-white">
-            Prismic
-          </PrismicNextLink>
+    <Bounded as="footer" className="bg-dark text-light py-5">
+      <div className="row justify-content-center">
+        <div className="col-12">
+          <SignUpForm settings={settings} />
+        </div>
+        <div className="col-12 text-center mt-4">
+          <p className="small mb-0">
+            Proudly published using{" "}
+            <PrismicNextLink
+              href="https://prismic.io"
+              className="text-white text-decoration-none"
+            >
+              Prismic
+            </PrismicNextLink>
+          </p>
         </div>
       </div>
     </Bounded>

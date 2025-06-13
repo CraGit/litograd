@@ -9,11 +9,11 @@ export function Heading({
   return (
     <Comp
       className={clsx(
-        "font-semibold tracking-tighter",
-        size === "8xl" && "text-5xl md:text-[5rem]",
-        size === "6xl" && "text-4xl md:text-6xl",
-        size === "2xl" && "text-2xl",
-        className,
+        "fw-semibold",
+        size === "8xl" && "display-1",
+        size === "6xl" && "display-3",
+        size === "2xl" && "h2",
+        className
       )}
     >
       {children}

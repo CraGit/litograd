@@ -22,26 +22,34 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const { lang } = await params;
-  const client = createClient();
+  try {
+    const { lang } = await params;
+    const client = createClient();
 
-  const page = await client.getByUID("page", "home", {
-    lang: reverseLocaleLookup(lang),
-  });
-  const navigation = await client.getSingle("navigation", {
-    lang: reverseLocaleLookup(lang),
-  });
-  const settings = await client.getSingle("settings", {
-    lang: reverseLocaleLookup(lang),
-  });
+    const page = await client.getByUID("page", "home", {
+      lang: reverseLocaleLookup(lang),
+    });
+    const navigation = await client.getSingle("navigation", {
+      lang: reverseLocaleLookup(lang),
+    });
+    const settings = await client.getSingle("settings", {
+      lang: reverseLocaleLookup(lang),
+    });
 
-  const locales = await getLocales(page, client);
+    const locales = await getLocales(page, client);
 
-  return (
-    <Layout locales={locales} navigation={navigation} settings={settings}>
-      <SliceZone slices={page.data.slices} components={components} />
-    </Layout>
-  );
+    console.log("Page: Locales data:", locales);
+
+    return (
+      <Layout locales={locales} navigation={navigation} settings={settings}>
+        <SliceZone slices={page.data.slices} components={components} />
+      </Layout>
+    );
+  } catch (error) {
+    console.error("Page: Error loading page data:", error);
+    // You might want to show an error page or fallback content
+    throw error;
+  }
 }
 
 export async function generateStaticParams() {
