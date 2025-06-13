@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
         <title>Litograd Construction</title>
         <link rel="icon" type="image/png" href="/favicon.ico" />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

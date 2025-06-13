@@ -3,6 +3,8 @@
 import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { HeaderClient } from "./HeaderClient";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -12,6 +14,16 @@ const localeLabels = {
 };
 
 export function Header({ locales = [], navigation, settings }) {
+  const pathname = usePathname();
+  // Extract current locale from pathname, fallback to 'en-us' if not found
+  const pathSegments = pathname.split("/").filter(Boolean);
+  const currentLocale =
+    pathSegments[0] && ["en-us", "hr"].includes(pathSegments[0])
+      ? pathSegments[0]
+      : "en-us";
+  const homeUrl = `/${currentLocale}`;
+
+  console.log("Header - current locale:", currentLocale);
   console.log("Header - locales received:", locales);
   console.log("Header - navigation:", navigation);
 
@@ -26,7 +38,7 @@ export function Header({ locales = [], navigation, settings }) {
                 {/* Left - Logo */}
                 <div className="header__area-menubar-left">
                   <div className="header__area-menubar-left-logo">
-                    <PrismicNextLink href="/">
+                    <Link href={homeUrl}>
                       <span className="visually-hidden">Go to homepage</span>
                       {prismic.isFilled.image(settings.data.logo) ? (
                         <PrismicNextImage
@@ -36,7 +48,7 @@ export function Header({ locales = [], navigation, settings }) {
                       ) : (
                         <img src="/assets/img/logo-1.png" alt="BuildGo" />
                       )}
-                    </PrismicNextLink>
+                    </Link>
                   </div>
                 </div>
 
@@ -87,13 +99,13 @@ export function Header({ locales = [], navigation, settings }) {
           <i className="fas fa-times"></i>
         </div>
         <div className="header__area-menubar-right-sidebar-popup-logo">
-          <PrismicNextLink href="/">
+          <Link href={homeUrl}>
             {prismic.isFilled.image(settings.data.logo) ? (
               <PrismicNextImage field={settings.data.logo} alt="Logo" />
             ) : (
               <img src="/assets/img/logo-2.png" alt="BuildGo" />
             )}
-          </PrismicNextLink>
+          </Link>
         </div>
         <p>
           We are a company that focuses on construction, engineering, and

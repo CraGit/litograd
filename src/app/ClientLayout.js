@@ -7,9 +7,16 @@ export function ClientLayout({ children }) {
     import("bootstrap/dist/js/bootstrap.min.js");
 
     // Dynamically import WOW.js and initialize
-    import("wowjs").then(({ WOW }) => {
-      new WOW({ live: false }).init();
-    });
+    import("wowjs")
+      .then((WOWModule) => {
+        const WOW = WOWModule.WOW || WOWModule.default;
+        if (WOW) {
+          new WOW({ live: false }).init();
+        }
+      })
+      .catch((error) => {
+        console.log("WOW.js not available:", error);
+      });
   }, []);
 
   return <>{children}</>;
