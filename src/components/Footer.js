@@ -156,21 +156,14 @@ export function Footer({ settings }) {
               <div className="copyright__area-content md-t-center md-mb-10">
                 <p>
                   Copyright 2025 – All Rights Reserved By{" "}
-                  {settings.data.company_name ? (
-                    <span>{settings.data.company_name}</span>
-                  ) : (
-                    <a
-                      href="https://themeforest.net/user/wpcodify"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      wpCodify
-                    </a>
-                  )}
+                  <span>{settings.data.company_name}</span> Web by{" "}
+                  <a href="https://www.killerclick.com" target="_blank">
+                    KillerClick
+                  </a>
                 </p>
               </div>
             </div>
-            <div className="col-md-5">
+            {/* <div className="col-md-5">
               <div className="copyright__area-social t-right md-t-center">
                 <ul>
                   {settings.data.facebook_link?.url && (
@@ -215,7 +208,7 @@ export function Footer({ settings }) {
                   )}
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

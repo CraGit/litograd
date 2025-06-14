@@ -17,7 +17,20 @@ export async function generateMetadata({ params }) {
   const page = await client.getByUID("page", uid, { lang });
 
   return {
-    title: prismic.asText(page.data.title),
+    title: page.data.meta_title || prismic.asText(page.data.title),
+    description: page.data.meta_description,
+    openGraph: {
+      title: page.data.meta_title || prismic.asText(page.data.title),
+      description: page.data.meta_description,
+      images: page.data.meta_image?.url ? [page.data.meta_image.url] : [],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.data.meta_title || prismic.asText(page.data.title),
+      description: page.data.meta_description,
+      images: page.data.meta_image?.url ? [page.data.meta_image.url] : [],
+    },
   };
 }
 

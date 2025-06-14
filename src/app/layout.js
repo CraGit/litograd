@@ -1,15 +1,20 @@
 import "./globals.css";
 import { ClientLayout } from "./ClientLayout";
 
+export const metadata = {
+  title: {
+    template: "%s | Litograd Construction",
+    default: "Litograd Construction",
+  },
+  description: "Professional construction and renovation services",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Litograd Construction</title>
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-      </head>
       <body suppressHydrationWarning={true}>
         <ClientLayout>{children}</ClientLayout>
       </body>
