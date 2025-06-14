@@ -5,12 +5,17 @@
 		"primary": {
 			"heading": {
 				"__TYPE__": "FieldContent",
-				"value": "Provide Quality Services",
+				"value": "avoid",
 				"type": "Text"
 			},
 			"overtitle": {
 				"__TYPE__": "FieldContent",
-				"value": "Our Services",
+				"value": "struggle",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "FieldContent",
+				"value": "silver",
 				"type": "Text"
 			},
 			"service": {
@@ -23,7 +28,7 @@
 								"heading",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Flooring Installation",
+									"value": "principle",
 									"type": "Text"
 								}
 							],
@@ -31,172 +36,32 @@
 								"content",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "Expert flooring installation services with high-quality materials and precise craftsmanship.",
-									"type": "Text"
-								}
-							],
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "flaticon-it-department",
+									"value": "other",
 									"type": "Text"
 								}
 							],
 							[
 								"button",
 								{
-									"key": "service1-button",
+									"key": "fcb62d87-0346-46d9-b1f8-4c3aa0e19520",
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "/services/flooring-installation",
-										"text": "Read More"
-									}
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"heading",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Building Architecture",
-									"type": "Text"
-								}
-							],
-							[
-								"content",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Innovative architectural design services with tailored aesthetics and functional layouts.",
-									"type": "Text"
-								}
-							],
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "flaticon-project",
-									"type": "Text"
-								}
-							],
-							[
-								"button",
-								{
-									"key": "service2-button",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "/services/building-architecture",
-										"text": "Read More"
-									}
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"heading",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Interior Design",
-									"type": "Text"
-								}
-							],
-							[
-								"content",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Transform spaces with innovative concepts and unique style that reflects your personality.",
-									"type": "Text"
-								}
-							],
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "flaticon-design-thinking",
-									"type": "Text"
-								}
-							],
-							[
-								"button",
-								{
-									"key": "service3-button",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "/services/interior-design",
-										"text": "Read More"
-									}
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"heading",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "House Renovation",
-									"type": "Text"
-								}
-							],
-							[
-								"content",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "Revitalize your home with modern upgrades while maintaining character and value.",
-									"type": "Text"
-								}
-							],
-							[
-								"icon",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "flaticon-data",
-									"type": "Text"
-								}
-							],
-							[
-								"button",
-								{
-									"key": "service4-button",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "/services/house-renovation",
-										"text": "Read More"
+										"url": "http://twitter.com",
+										"text": "steady"
 									}
 								}
 							]
 						]
 					}
 				]
-			},
-			"content": {
-				"__TYPE__": "FieldContent",
-				"value": "We provide comprehensive construction and design services to transform your vision into reality.",
-				"type": "Text"
-			},
-			"button": {
-				"key": "main-services-button",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "/services",
-					"text": "View All Services"
-				}
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

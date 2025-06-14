@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TestimonialsSliceSlice
   | ServicesSliceSlice
   | AboutUsSliceSlice
   | HeroSliceSlice;
@@ -172,6 +173,100 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   quote: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Company name field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.company_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company_name: prismic.KeyTextField;
+
+  /**
+   * Address field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address: prismic.KeyTextField;
+
+  /**
+   * Place field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.place
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  place: prismic.KeyTextField;
+
+  /**
+   * Google Map Embed field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.google_map_embed
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  google_map_embed: prismic.KeyTextField;
+
+  /**
+   * Phone field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.phone
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone: prismic.KeyTextField;
+
+  /**
+   * Email field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Footer CTA field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_cta
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_cta: prismic.KeyTextField;
+
+  /**
+   * Footer CTA link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_cta_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  footer_cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -507,6 +602,108 @@ export type ServicesSliceSlice = prismic.SharedSlice<
   ServicesSliceSliceVariation
 >;
 
+/**
+ * Item in *TestimonialsSlice → Default → Primary → Testimonial*
+ */
+export interface TestimonialsSliceSliceDefaultPrimaryTestimonialItem {
+  /**
+   * Name field in *TestimonialsSlice → Default → Primary → Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.default.primary.testimonial[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Role field in *TestimonialsSlice → Default → Primary → Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.default.primary.testimonial[].role
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Content field in *TestimonialsSlice → Default → Primary → Testimonial*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.default.primary.testimonial[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TestimonialsSlice → Default → Primary*
+ */
+export interface TestimonialsSliceSliceDefaultPrimary {
+  /**
+   * Heading field in *TestimonialsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Overtitle field in *TestimonialsSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Testimonial field in *TestimonialsSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonials_slice.default.primary.testimonial[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  testimonial: prismic.GroupField<
+    Simplify<TestimonialsSliceSliceDefaultPrimaryTestimonialItem>
+  >;
+}
+
+/**
+ * Default variation for TestimonialsSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestimonialsSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestimonialsSlice*
+ */
+type TestimonialsSliceSliceVariation = TestimonialsSliceSliceDefault;
+
+/**
+ * TestimonialsSlice Shared Slice
+ *
+ * - **API ID**: `testimonials_slice`
+ * - **Description**: TestimonialsSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialsSliceSlice = prismic.SharedSlice<
+  "testimonials_slice",
+  TestimonialsSliceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -550,6 +747,11 @@ declare module "@prismicio/client" {
       ServicesSliceSliceDefaultPrimary,
       ServicesSliceSliceVariation,
       ServicesSliceSliceDefault,
+      TestimonialsSliceSlice,
+      TestimonialsSliceSliceDefaultPrimaryTestimonialItem,
+      TestimonialsSliceSliceDefaultPrimary,
+      TestimonialsSliceSliceVariation,
+      TestimonialsSliceSliceDefault,
     };
   }
 }

@@ -33,6 +33,66 @@
           "allowText": true,
           "repeat": false
         }
+      },
+      "company_name": {
+        "type": "Text",
+        "config": {
+          "label": "Company name",
+          "placeholder": ""
+        }
+      },
+      "address": {
+        "type": "Text",
+        "config": {
+          "label": "Address",
+          "placeholder": ""
+        }
+      },
+      "place": {
+        "type": "Text",
+        "config": {
+          "label": "Place",
+          "placeholder": ""
+        }
+      },
+      "google_map_embed": {
+        "type": "Text",
+        "config": {
+          "label": "Google Map Embed",
+          "placeholder": ""
+        }
+      },
+      "phone": {
+        "type": "Text",
+        "config": {
+          "label": "Phone",
+          "placeholder": ""
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": ""
+        }
+      },
+      "footer_cta": {
+        "type": "Text",
+        "config": {
+          "label": "Footer CTA",
+          "placeholder": ""
+        }
+      },
+      "footer_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "Footer CTA link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
       }
     }
   }
