@@ -55,11 +55,11 @@ export default async function Page({ params }) {
 
     return (
       <Layout locales={locales} navigation={navigation} settings={settings}>
-        <SliceZone 
-          slices={page.data.slices} 
+        <SliceZone
+          slices={page.data.slices}
           components={components}
           context={{
-            settings
+            settings,
           }}
         />
       </Layout>

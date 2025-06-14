@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | MapSliceSlice
   | ContactSliceSlice
   | ProjectGridSliceSlice
   | TeamSliceSlice
@@ -543,6 +544,131 @@ export type AboutUsSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ContactSlice → Default → Primary*
+ */
+export interface ContactSliceSliceDefaultPrimary {
+  /**
+   * Overtitle field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Contact Us
+   * - **API ID Path**: contact_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Heading field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Get In Touch
+   * - **API ID Path**: contact_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Description field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: We're here to assist you! Please reach out with any questions, feedback, or project inquiries.
+   * - **API ID Path**: contact_slice.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Phone Label field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Phone:
+   * - **API ID Path**: contact_slice.default.primary.phone_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_label: prismic.KeyTextField;
+
+  /**
+   * Email Label field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Email Address:
+   * - **API ID Path**: contact_slice.default.primary.email_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_label: prismic.KeyTextField;
+
+  /**
+   * Location Label field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Location:
+   * - **API ID Path**: contact_slice.default.primary.location_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location_label: prismic.KeyTextField;
+
+  /**
+   * Form Title field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Send Message
+   * - **API ID Path**: contact_slice.default.primary.form_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_title: prismic.KeyTextField;
+
+  /**
+   * Name Placeholder field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Full Name
+   * - **API ID Path**: contact_slice.default.primary.name_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name_placeholder: prismic.KeyTextField;
+
+  /**
+   * Email Placeholder field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Email Address
+   * - **API ID Path**: contact_slice.default.primary.email_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email_placeholder: prismic.KeyTextField;
+
+  /**
+   * Subject Placeholder field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Subject
+   * - **API ID Path**: contact_slice.default.primary.subject_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subject_placeholder: prismic.KeyTextField;
+
+  /**
+   * Message Placeholder field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Message
+   * - **API ID Path**: contact_slice.default.primary.message_placeholder
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  message_placeholder: prismic.KeyTextField;
+
+  /**
+   * Submit Button Text field in *ContactSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Submit Message
+   * - **API ID Path**: contact_slice.default.primary.submit_button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  submit_button_text: prismic.KeyTextField;
+}
+
+/**
  * Default variation for ContactSlice Slice
  *
  * - **API ID**: `default`
@@ -551,7 +677,7 @@ export type AboutUsSliceSlice = prismic.SharedSlice<
  */
 export type ContactSliceSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ContactSliceSliceDefaultPrimary>,
   never
 >;
 
@@ -635,6 +761,51 @@ type HeroSliceSliceVariation = HeroSliceSliceDefault;
 export type HeroSliceSlice = prismic.SharedSlice<
   "hero_slice",
   HeroSliceSliceVariation
+>;
+
+/**
+ * Primary content in *MapSlice → Default → Primary*
+ */
+export interface MapSliceSliceDefaultPrimary {
+  /**
+   * Google Maps Embed URL field in *MapSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648750455!2d-73.98656968459371!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus
+   * - **API ID Path**: map_slice.default.primary.gmaps_embed
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  gmaps_embed: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for MapSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MapSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MapSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MapSlice*
+ */
+type MapSliceSliceVariation = MapSliceSliceDefault;
+
+/**
+ * MapSlice Shared Slice
+ *
+ * - **API ID**: `map_slice`
+ * - **Description**: MapSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MapSliceSlice = prismic.SharedSlice<
+  "map_slice",
+  MapSliceSliceVariation
 >;
 
 /**
@@ -1230,12 +1401,17 @@ declare module "@prismicio/client" {
       AboutUsSliceSliceVariation,
       AboutUsSliceSliceDefault,
       ContactSliceSlice,
+      ContactSliceSliceDefaultPrimary,
       ContactSliceSliceVariation,
       ContactSliceSliceDefault,
       HeroSliceSlice,
       HeroSliceSliceDefaultPrimary,
       HeroSliceSliceVariation,
       HeroSliceSliceDefault,
+      MapSliceSlice,
+      MapSliceSliceDefaultPrimary,
+      MapSliceSliceVariation,
+      MapSliceSliceDefault,
       MissionSliceSlice,
       MissionSliceSliceDefaultPrimary,
       MissionSliceSliceVariation,

@@ -1,0 +1,35 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [],
+    "primary": {
+      "overtitle": "Contact Us",
+      "heading": [
+        {
+          "type": "heading2",
+          "text": "Get In Touch",
+          "spans": []
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "We're here to assist you! Please reach out with any questions, feedback, or project inquiries.",
+          "spans": []
+        }
+      ],
+      "phone_label": "Phone:",
+      "email_label": "Email Address:",
+      "location_label": "Location:",
+      "form_title": "Send Message",
+      "name_placeholder": "Full Name",
+      "email_placeholder": "Email Address",
+      "subject_placeholder": "Subject",
+      "message_placeholder": "Message",
+      "submit_button_text": "Submit Message"
+    },
+    "slice_type": "contact_slice",
+    "id": "_Default"
+  }
+]

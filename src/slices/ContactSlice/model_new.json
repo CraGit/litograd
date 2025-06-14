@@ -1,0 +1,107 @@
+{
+  "id": "contact_slice",
+  "type": "SharedSlice",
+  "name": "ContactSlice",
+  "description": "ContactSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "overtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Overtitle",
+            "placeholder": "Contact Us"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Get In Touch",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "We're here to assist you! Please reach out with any questions, feedback, or project inquiries.",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "phone_label": {
+          "type": "Text",
+          "config": {
+            "label": "Phone Label",
+            "placeholder": "Phone:"
+          }
+        },
+        "email_label": {
+          "type": "Text",
+          "config": {
+            "label": "Email Label",
+            "placeholder": "Email Address:"
+          }
+        },
+        "location_label": {
+          "type": "Text",
+          "config": {
+            "label": "Location Label",
+            "placeholder": "Location:"
+          }
+        },
+        "form_title": {
+          "type": "Text",
+          "config": {
+            "label": "Form Title",
+            "placeholder": "Send Message"
+          }
+        },
+        "name_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Name Placeholder",
+            "placeholder": "Full Name"
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Placeholder",
+            "placeholder": "Email Address"
+          }
+        },
+        "subject_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Subject Placeholder",
+            "placeholder": "Subject"
+          }
+        },
+        "message_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Message Placeholder",
+            "placeholder": "Message"
+          }
+        },
+        "submit_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Submit Button Text",
+            "placeholder": "Submit Message"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

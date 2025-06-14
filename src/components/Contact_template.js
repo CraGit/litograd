@@ -54,16 +54,9 @@ export default function Contact({ slice, settings }) {
                   />
                 )}
                 {slice?.primary?.description && (
-                  <PrismicRichText
-                    field={slice.primary.description}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <p className="wow fadeInUp" data-wow-delay=".4s">
-                          {children}
-                        </p>
-                      ),
-                    }}
-                  />
+                  <div className="wow fadeInUp" data-wow-delay=".4s">
+                    <PrismicRichText field={slice.primary.description} />
+                  </div>
                 )}
               </div>
               <div
