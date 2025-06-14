@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SmallHeroSliceSlice
   | TestimonialsSliceSlice
   | ServicesSliceSlice
   | AboutUsSliceSlice
@@ -603,6 +604,61 @@ export type ServicesSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SmallHeroSlice → Default → Primary*
+ */
+export interface SmallHeroSliceSliceDefaultPrimary {
+  /**
+   * Heading field in *SmallHeroSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: small_hero_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Image field in *SmallHeroSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: small_hero_slice.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SmallHeroSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SmallHeroSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SmallHeroSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SmallHeroSlice*
+ */
+type SmallHeroSliceSliceVariation = SmallHeroSliceSliceDefault;
+
+/**
+ * SmallHeroSlice Shared Slice
+ *
+ * - **API ID**: `small_hero_slice`
+ * - **Description**: SmallHeroSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SmallHeroSliceSlice = prismic.SharedSlice<
+  "small_hero_slice",
+  SmallHeroSliceSliceVariation
+>;
+
+/**
  * Item in *TestimonialsSlice → Default → Primary → Testimonial*
  */
 export interface TestimonialsSliceSliceDefaultPrimaryTestimonialItem {
@@ -747,6 +803,10 @@ declare module "@prismicio/client" {
       ServicesSliceSliceDefaultPrimary,
       ServicesSliceSliceVariation,
       ServicesSliceSliceDefault,
+      SmallHeroSliceSlice,
+      SmallHeroSliceSliceDefaultPrimary,
+      SmallHeroSliceSliceVariation,
+      SmallHeroSliceSliceDefault,
       TestimonialsSliceSlice,
       TestimonialsSliceSliceDefaultPrimaryTestimonialItem,
       TestimonialsSliceSliceDefaultPrimary,
