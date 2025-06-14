@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   about_us_slice: dynamic(() => import("./AboutUsSlice")),
   hero_slice: dynamic(() => import("./HeroSlice")),
+  mission_slice: dynamic(() => import("./MissionSlice")),
   services_slice: dynamic(() => import("./ServicesSlice")),
   small_hero_slice: dynamic(() => import("./SmallHeroSlice")),
   testimonials_slice: dynamic(() => import("./TestimonialsSlice")),

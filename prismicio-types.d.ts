@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | MissionSliceSlice
   | SmallHeroSliceSlice
   | TestimonialsSliceSlice
   | ServicesSliceSlice
@@ -492,6 +493,101 @@ export type HeroSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *MissionSlice → Default → Primary*
+ */
+export interface MissionSliceSliceDefaultPrimary {
+  /**
+   * Heading field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Overtitle field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Subheading One field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.subheading_one
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading_one: prismic.KeyTextField;
+
+  /**
+   * Content One field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.content_one
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content_one: prismic.KeyTextField;
+
+  /**
+   * Subheading Two field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.subheading_two
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading_two: prismic.KeyTextField;
+
+  /**
+   * Content Two field in *MissionSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_slice.default.primary.content_two
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content_two: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for MissionSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MissionSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MissionSlice*
+ */
+type MissionSliceSliceVariation = MissionSliceSliceDefault;
+
+/**
+ * MissionSlice Shared Slice
+ *
+ * - **API ID**: `mission_slice`
+ * - **Description**: MissionSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionSliceSlice = prismic.SharedSlice<
+  "mission_slice",
+  MissionSliceSliceVariation
+>;
+
+/**
  * Item in *ServicesSlice → Default → Primary → Service*
  */
 export interface ServicesSliceSliceDefaultPrimaryServiceItem {
@@ -798,6 +894,10 @@ declare module "@prismicio/client" {
       HeroSliceSliceDefaultPrimary,
       HeroSliceSliceVariation,
       HeroSliceSliceDefault,
+      MissionSliceSlice,
+      MissionSliceSliceDefaultPrimary,
+      MissionSliceSliceVariation,
+      MissionSliceSliceDefault,
       ServicesSliceSlice,
       ServicesSliceSliceDefaultPrimaryServiceItem,
       ServicesSliceSliceDefaultPrimary,

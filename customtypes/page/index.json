@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "mission_slice": {
+              "type": "SharedSlice"
+            },
             "small_hero_slice": {
               "type": "SharedSlice"
             },

@@ -708,3 +708,96 @@ body.sidebar-open {
     font-size: 18px;
   }
 }
+
+/* Mission Section CSS */
+.mission__area {
+  padding: 120px 0;
+}
+
+.mission__area-left {
+  margin-right: 40px;
+}
+
+.mission__area-left .subtitle {
+  color: var(--text-heading-color);
+  font-family: var(--heading-font);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding: 7px 15px;
+  border: 1px solid var(--border-color-2);
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.mission__area-left h2 {
+  font-size: 56px;
+  line-height: 66px;
+  font-weight: 500;
+  color: var(--text-heading-color);
+  margin-bottom: 0;
+}
+
+.mission__area-right .experience__area-list-item {
+  background: var(--color-2);
+  border-radius: 12px;
+  padding: 40px;
+  height: 100%;
+}
+
+.mission__area-right .experience__area-list-item i {
+  font-size: 70px;
+  display: inline-block;
+  color: var(--primary-color-1);
+}
+
+.mission__area-right .experience__area-list-item-content {
+  margin-top: 25px;
+}
+
+/* Mission component equal height cards */
+.mission__area-right .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mission__area-right .row > div {
+  display: flex;
+}
+
+.mission__area-right .experience__area-list-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.mission__area-right .experience__area-list-item-content {
+  flex: 1;
+}
+
+@media (max-width: 991px) {
+  .mission__area h2 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  
+  .mission__area-left h2 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mission__area h2 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  
+  .mission__area-left h2 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+}

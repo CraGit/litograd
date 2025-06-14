@@ -1,0 +1,39 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "finally",
+				"type": "Text"
+			},
+			"overtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "rich",
+				"type": "Text"
+			},
+			"subheading_one": {
+				"__TYPE__": "FieldContent",
+				"value": "wise",
+				"type": "Text"
+			},
+			"content_one": {
+				"__TYPE__": "FieldContent",
+				"value": "card",
+				"type": "Text"
+			},
+			"subheading_two": {
+				"__TYPE__": "FieldContent",
+				"value": "cold",
+				"type": "Text"
+			},
+			"content_two": {
+				"__TYPE__": "FieldContent",
+				"value": "slabs",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

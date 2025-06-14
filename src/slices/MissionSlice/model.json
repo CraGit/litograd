@@ -1,0 +1,61 @@
+{
+  "id": "mission_slice",
+  "type": "SharedSlice",
+  "name": "MissionSlice",
+  "description": "MissionSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "overtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Overtitle",
+            "placeholder": ""
+          }
+        },
+        "subheading_one": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading One",
+            "placeholder": ""
+          }
+        },
+        "content_one": {
+          "type": "Text",
+          "config": {
+            "label": "Content One",
+            "placeholder": ""
+          }
+        },
+        "subheading_two": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading Two",
+            "placeholder": ""
+          }
+        },
+        "content_two": {
+          "type": "Text",
+          "config": {
+            "label": "Content Two",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
