@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TeamSliceSlice
   | AboutCompanySliceSlice
   | MissionSliceSlice
   | SmallHeroSliceSlice
@@ -328,14 +329,14 @@ export interface AboutCompanySliceSliceDefaultPrimary {
   content: prismic.KeyTextField;
 
   /**
-   * CTA Label field in *AboutCompanySlice → Default → Primary*
+   * Feature Text field in *AboutCompanySlice → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: See Projects
-   * - **API ID Path**: about_company_slice.default.primary.cta_label
+   * - **Placeholder**: Building Trust<br/>Since 1989
+   * - **API ID Path**: about_company_slice.default.primary.feature_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  cta_label: prismic.KeyTextField;
+  feature_text: prismic.KeyTextField;
 
   /**
    * CTA Link field in *AboutCompanySlice → Default → Primary*
@@ -867,6 +868,96 @@ export type SmallHeroSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TeamSlice → Default → Primary*
+ */
+export interface TeamSliceSliceDefaultPrimary {
+  /**
+   * Overtitle field in *TeamSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Meet Our Experts
+   * - **API ID Path**: team_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Heading field in *TeamSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Dedicated Professionals
+   * - **API ID Path**: team_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TeamSlice → Items*
+ */
+export interface TeamSliceSliceDefaultItem {
+  /**
+   * Name field in *TeamSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Team Member Name
+   * - **API ID Path**: team_slice.items[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Position field in *TeamSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Job Title
+   * - **API ID Path**: team_slice.items[].position
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  position: prismic.KeyTextField;
+
+  /**
+   * Image field in *TeamSlice → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_slice.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TeamSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TeamSliceSliceDefaultPrimary>,
+  Simplify<TeamSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *TeamSlice*
+ */
+type TeamSliceSliceVariation = TeamSliceSliceDefault;
+
+/**
+ * TeamSlice Shared Slice
+ *
+ * - **API ID**: `team_slice`
+ * - **Description**: TeamSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamSliceSlice = prismic.SharedSlice<
+  "team_slice",
+  TeamSliceSliceVariation
+>;
+
+/**
  * Item in *TestimonialsSlice → Default → Primary → Testimonial*
  */
 export interface TestimonialsSliceSliceDefaultPrimaryTestimonialItem {
@@ -1023,6 +1114,11 @@ declare module "@prismicio/client" {
       SmallHeroSliceSliceDefaultPrimary,
       SmallHeroSliceSliceVariation,
       SmallHeroSliceSliceDefault,
+      TeamSliceSlice,
+      TeamSliceSliceDefaultPrimary,
+      TeamSliceSliceDefaultItem,
+      TeamSliceSliceVariation,
+      TeamSliceSliceDefault,
       TestimonialsSliceSlice,
       TestimonialsSliceSliceDefaultPrimaryTestimonialItem,
       TestimonialsSliceSliceDefaultPrimary,

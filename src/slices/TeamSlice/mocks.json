@@ -1,0 +1,42 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {
+        "name": "Marko Kovačić",
+        "position": "Voditelj projekata",
+        "description": "Iskusan profesionalac s više od 15 godina rada na kompleksnim građevinskim projektima.",
+        "image": {
+          "dimensions": {
+            "width": 400,
+            "height": 400
+          },
+          "alt": "Marko Kovačić",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+        }
+      },
+      {
+        "name": "Ana Jurić",
+        "position": "Građevinski inženjer",
+        "description": "Stručnjakinja za strukturno inženjerstvo s fokusom na inovativna rješenja u građevinarstvu.",
+        "image": {
+          "dimensions": {
+            "width": 400,
+            "height": 400
+          },
+          "alt": "Ana Jurić",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1494790108755-2616b612b192?w=400&h=400&fit=crop&crop=face"
+        }
+      }
+    ],
+    "primary": {
+      "overtitle": "Upoznajte naše stručnjake",
+      "heading": "Predani profesionalci"
+    },
+    "slice_type": "team_slice",
+    "id": "_Default"
+  }
+]
