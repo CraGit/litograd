@@ -1277,3 +1277,447 @@ body.sidebar-open {
     padding: 30px 20px 20px;
   }
 }
+
+/* Contact Section CSS */
+.contact__area {
+  padding: 120px 0;
+}
+
+.contact__area-title {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.contact__area-title .subtitle {
+  color: var(--primary-color-1);
+  font-family: var(--heading-font);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding: 7px 15px;
+  border: 1px solid var(--primary-color-1);
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.contact__area-title h2 {
+  font-size: 56px;
+  line-height: 66px;
+  font-weight: 500;
+  color: var(--text-heading-color);
+  margin-bottom: 0;
+}
+
+.contact__area-left p {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--text-color);
+  margin-bottom: 40px;
+}
+
+.contact__area-left-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.contact__area-left-info-item-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.contact__area-left-info-item-icon i {
+  font-size: 24px;
+  color: var(--text-heading-color);
+}
+
+.contact__area-left-info-item-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-heading-color);
+  margin-bottom: 8px;
+}
+
+.contact__area-left-info-item-content a,
+.contact__area-left-info-item-content p {
+  font-size: 16px;
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0;
+}
+
+.contact__area-left-info-item-content a:hover {
+  color: var(--primary-color-1);
+  text-decoration: none;
+}
+
+.contact__area-right-title h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-heading-color);
+  margin-bottom: 30px;
+}
+
+/* Contact Info Heading */
+.contact__area-left-title {
+  margin-bottom: 30px;
+}
+
+.contact__area-left-title h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-heading-color);
+  margin-bottom: 0;
+}
+
+/* Contact Links with Pointer Cursor */
+.contact-link {
+  cursor: pointer !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary-color-1) !important;
+  text-decoration: none;
+}
+
+.contact__area-right-form input,
+.contact__area-right-form textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid var(--border-color-2);
+  border-radius: 0;
+  background: var(--color-2);
+  font-size: 16px;
+  color: var(--text-color);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact__area-right-form input:focus,
+.contact__area-right-form textarea:focus {
+  border-color: var(--primary-color-1);
+}
+
+.contact__area-right-form input::placeholder,
+.contact__area-right-form textarea::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.contact__area-right-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Contact Section Responsive CSS */
+@media (max-width: 991px) {
+  .contact__area {
+    padding: 80px 0;
+  }
+  
+  .contact__area-title h2 {
+    font-size: 42px;
+    line-height: 52px;
+  }
+  
+  .contact__area-left {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact__area {
+    padding: 60px 0;
+  }
+  
+  .contact__area-title {
+    margin-bottom: 40px;
+  }
+  
+  .contact__area-title h2 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  
+  .contact__area-left-info-item {
+    margin-bottom: 25px;
+  }
+  
+  .contact__area-left-info-item-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .contact__area-left-info-item-icon i {
+    font-size: 20px;
+  }
+  
+  .contact__area-right-title h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .contact__area-right-form input,
+  .contact__area-right-form textarea {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contact__area-title h2 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  
+  .contact__area-left-info-item-content h4 {
+    font-size: 16px;
+  }
+  
+  .contact__area-left-info-item-content a,
+  .contact__area-left-info-item-content p {
+    font-size: 14px;
+  }
+}
+
+/* Contact Section Enhanced Responsive CSS */
+@media (max-width: 991px) {
+  .contact__area-left-title h3,
+  .contact__area-right-title h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .contact__area-right-form-wrapper {
+    padding: 30px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact__area-left-title h3,
+  .contact__area-right-title h3 {
+    font-size: 24px;
+  }
+  
+  .contact__area-right-form-wrapper {
+    padding: 25px;
+    border-radius: 8px;
+  }
+  
+  .contact__area-left-title {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contact__area-left-title h3,
+  .contact__area-right-title h3 {
+    font-size: 20px;
+  }
+  
+  .contact__area-right-form-wrapper {
+    padding: 20px;
+  }
+}
+
+/* Contact Section CSS - Template Based */
+.contact__area-left-contact {
+  margin-top: 45px;
+}
+
+.contact__area-left-contact-item {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 25px;
+}
+
+.contact__area-left-contact-item-icon i {
+  font-size: 40px;
+  margin-top: 5px;
+  color: var(--primary-color-1);
+}
+
+.contact__area-left-contact-item-content span {
+  display: inline-block;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 500;
+  color: var(--text-heading-color);
+}
+
+.contact__area-left-contact-item-content h6 {
+  max-width: 240px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  font-family: var(--body-font);
+  margin: 0;
+}
+
+.contact__area-left-contact-item-content h6 a {
+  transition: 0.4s;
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact__area-left-contact-item-content h6 a:hover {
+  color: var(--primary-color-1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact__area-left-contact-item:last-child {
+  margin: 0;
+}
+
+.contact__area-form {
+  background: var(--color-2);
+  padding: 70px;
+  border-radius: 10px;
+}
+
+.contact__area-form h4 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-heading-color);
+}
+
+.contact__form-area-item {
+  margin-bottom: 0;
+}
+
+.contact__form-area-item input,
+.contact__form-area-item textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid var(--border-color-2);
+  border-radius: 0;
+  background: var(--bg-white);
+  font-size: 16px;
+  color: var(--text-color);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact__form-area-item input:focus,
+.contact__form-area-item textarea:focus {
+  border-color: var(--primary-color-1);
+}
+
+.contact__form-area-item input::placeholder,
+.contact__form-area-item textarea::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.contact__form-area-item textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Template Contact Responsive */
+@media (max-width: 767px) {
+  .contact__area-form {
+    padding: 30px 25px;
+  }
+  
+  .contact__area-left-contact-item-icon i {
+    font-size: 30px;
+  }
+  
+  .contact__area-left-contact-item-content span {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  
+  .contact__area-left-contact-item-content h6 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .contact__area-form h4 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Global Subtitle and Title Styles - From Template */
+.subtitle {
+  color: var(--text-heading-color);
+  font-family: var(--heading-font);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding: 7px 15px;
+  border: 1px solid var(--border-color-2);
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.title_split_anim {
+  font-size: 56px;
+  line-height: 66px;
+  font-weight: 500;
+  color: var(--text-heading-color);
+  margin-bottom: 0;
+}
+
+/* Contact Area Title Specific */
+.contact__area-left .title {
+  margin-bottom: 0;
+}
+
+.contact__area-left .title .subtitle {
+  border: 1px solid var(--primary-color-1);
+  color: var(--primary-color-1);
+}
+
+.contact__area-left .title p {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--text-color);
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .title_split_anim {
+    font-size: 42px;
+    line-height: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title_split_anim {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  
+  .subtitle {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
+
+@media (max-width: 575px) {
+  .title_split_anim {
+    font-size: 28px;
+    line-height: 38px;
+  }
+}

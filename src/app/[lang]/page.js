@@ -55,7 +55,13 @@ export default async function Page({ params }) {
 
     return (
       <Layout locales={locales} navigation={navigation} settings={settings}>
-        <SliceZone slices={page.data.slices} components={components} />
+        <SliceZone 
+          slices={page.data.slices} 
+          components={components}
+          context={{
+            settings
+          }}
+        />
       </Layout>
     );
   } catch (error) {

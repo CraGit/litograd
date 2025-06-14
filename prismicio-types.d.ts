@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ContactSliceSlice
   | ProjectGridSliceSlice
   | TeamSliceSlice
   | AboutCompanySliceSlice
@@ -539,6 +540,36 @@ type AboutUsSliceSliceVariation = AboutUsSliceSliceDefault;
 export type AboutUsSliceSlice = prismic.SharedSlice<
   "about_us_slice",
   AboutUsSliceSliceVariation
+>;
+
+/**
+ * Default variation for ContactSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactSlice*
+ */
+type ContactSliceSliceVariation = ContactSliceSliceDefault;
+
+/**
+ * ContactSlice Shared Slice
+ *
+ * - **API ID**: `contact_slice`
+ * - **Description**: ContactSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceSlice = prismic.SharedSlice<
+  "contact_slice",
+  ContactSliceSliceVariation
 >;
 
 /**
@@ -1198,6 +1229,9 @@ declare module "@prismicio/client" {
       AboutUsSliceSliceDefaultPrimary,
       AboutUsSliceSliceVariation,
       AboutUsSliceSliceDefault,
+      ContactSliceSlice,
+      ContactSliceSliceVariation,
+      ContactSliceSliceDefault,
       HeroSliceSlice,
       HeroSliceSliceDefaultPrimary,
       HeroSliceSliceVariation,
