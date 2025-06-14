@@ -1,0 +1,175 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"service_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+					"width": 4016,
+					"height": 6016
+				},
+				"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+				"width": 4016,
+				"height": 6016,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "Construction service main image",
+				"thumbnails": {}
+			},
+			"service_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Iskustvo, kvaliteta i odgovornost"
+						}
+					}
+				]
+			},
+			"service_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Naša tvrtka je specijalizirana za visokokvalitetne građevinske usluge prilagođene jedinstvenim potrebama naših klijenata. S dugogodišnjim iskustvom u industriji, naš tim stručnjaka posvećen je ostvarivanju vaše vizije."
+						}
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Bilo da tražite izgradnju nove strukture, renoviranje postojećeg prostora ili specijalizirane građevinske usluge, tu smo da vam pomognemo. Naš sveobuhvatan pristup osigurava da se svaki projekt završi na vrijeme, u okviru budžeta i prema najvišim standardima."
+						}
+					}
+				]
+			},
+			"gallery_image_1": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5",
+					"width": 4000,
+					"height": 6000
+				},
+				"url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5",
+				"width": 4000,
+				"height": 6000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "Construction gallery image 1",
+				"thumbnails": {}
+			},
+			"gallery_image_2": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd",
+					"width": 5000,
+					"height": 3333
+				},
+				"url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd",
+				"width": 5000,
+				"height": 3333,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "Construction gallery image 2",
+				"thumbnails": {}
+			},
+			"features_title": {
+				"__TYPE__": "TextContent",
+				"value": "Zašto odabrati naše usluge"
+			},
+			"cta_title": {
+				"__TYPE__": "TextContent",
+				"value": "Spremni ste za vaš sljedeći projekt?"
+			},
+			"cta_text": {
+				"__TYPE__": "TextContent",
+				"value": "Kontaktirajte nas danas za besplatnu konzultaciju i detaljnu ponudu za vaše građevinske potrebe."
+			},
+			"cta_button_text": {
+				"__TYPE__": "TextContent",
+				"value": "NAŠI PROJEKTI"
+			},
+			"cta_button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "/contact"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_text",
+						{
+							"__TYPE__": "TextContent",
+							"value": "Naši stručni profesionalci donose godine iskustva u svaki projekt"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_text",
+						{
+							"__TYPE__": "TextContent",
+							"value": "Vodimo u građevinskoj industriji s najboljim uslugama"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_text",
+						{
+							"__TYPE__": "TextContent",
+							"value": "Transparentno poslovanje bez skrivenih troškova"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"feature_text",
+						{
+							"__TYPE__": "TextContent",
+							"value": "Pridržavamo se strogih sigurnosnih standarda na svim gradilištima"
+						}
+					]
+				]
+			}
+		]
+	}
+]

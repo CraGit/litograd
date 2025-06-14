@@ -1,0 +1,105 @@
+{
+  "id": "service_detail_slice",
+  "type": "SharedSlice",
+  "name": "ServiceDetailSlice",
+  "description": "ServiceDetailSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "service_image": {
+          "type": "Image",
+          "config": {
+            "constraint": {},
+            "thumbnails": [],
+            "label": "Service Image"
+          }
+        },
+        "service_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Service Title",
+            "placeholder": "Service Title",
+            "allowTargetBlank": true,
+            "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+          }
+        },
+        "service_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Service Content",
+            "placeholder": "Service description and details...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "gallery_image_1": {
+          "type": "Image",
+          "config": {
+            "constraint": {},
+            "thumbnails": [],
+            "label": "Gallery Image 1"
+          }
+        },
+        "gallery_image_2": {
+          "type": "Image",
+          "config": {
+            "constraint": {},
+            "thumbnails": [],
+            "label": "Gallery Image 2"
+          }
+        },
+        "features_title": {
+          "type": "Text",
+          "config": {
+            "label": "Features Section Title",
+            "placeholder": "Why Choose Our Service"
+          }
+        },
+        "cta_title": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Title",
+            "placeholder": "Ready to Get Started?"
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": "Contact us today for a free consultation"
+          }
+        },
+        "cta_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Button Text",
+            "placeholder": "Get a Quote"
+          }
+        },
+        "cta_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button Link",
+            "placeholder": "",
+            "allowTargetBlank": true
+          }
+        }
+      },
+      "items": {
+        "feature_text": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Text",
+            "placeholder": "Our skilled professionals bring years of experience"
+          }
+        }
+      }
+    }
+  ]
+}

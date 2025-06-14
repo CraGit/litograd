@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ServiceDetailSliceSlice
   | MapSliceSlice
   | ContactSliceSlice
   | ProjectGridSliceSlice
@@ -994,6 +995,71 @@ export type ProjectGridSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ServiceDetailSlice → Default → Primary*
+ */
+export interface ServiceDetailSliceSliceDefaultPrimary {
+  /**
+   * Service Image field in *ServiceDetailSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_detail_slice.default.primary.service_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  service_image: prismic.ImageField<never>;
+
+  /**
+   * Service Title field in *ServiceDetailSlice → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Service Title
+   * - **API ID Path**: service_detail_slice.default.primary.service_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_title: prismic.TitleField;
+
+  /**
+   * Service Content field in *ServiceDetailSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Service description and details...
+   * - **API ID Path**: service_detail_slice.default.primary.service_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ServiceDetailSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceDetailSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServiceDetailSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServiceDetailSlice*
+ */
+type ServiceDetailSliceSliceVariation = ServiceDetailSliceSliceDefault;
+
+/**
+ * ServiceDetailSlice Shared Slice
+ *
+ * - **API ID**: `service_detail_slice`
+ * - **Description**: ServiceDetailSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceDetailSliceSlice = prismic.SharedSlice<
+  "service_detail_slice",
+  ServiceDetailSliceSliceVariation
+>;
+
+/**
  * Item in *ServicesSlice → Default → Primary → Service*
  */
 export interface ServicesSliceSliceDefaultPrimaryServiceItem {
@@ -1421,6 +1487,10 @@ declare module "@prismicio/client" {
       ProjectGridSliceSliceDefaultItem,
       ProjectGridSliceSliceVariation,
       ProjectGridSliceSliceDefault,
+      ServiceDetailSliceSlice,
+      ServiceDetailSliceSliceDefaultPrimary,
+      ServiceDetailSliceSliceVariation,
+      ServiceDetailSliceSliceDefault,
       ServicesSliceSlice,
       ServicesSliceSliceDefaultPrimaryServiceItem,
       ServicesSliceSliceDefaultPrimary,
