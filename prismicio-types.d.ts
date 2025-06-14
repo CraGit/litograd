@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ProjectGridSliceSlice
   | TeamSliceSlice
   | AboutCompanySliceSlice
   | MissionSliceSlice
@@ -701,6 +702,96 @@ export type MissionSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ProjectGridSlice → Default → Primary*
+ */
+export interface ProjectGridSliceSliceDefaultPrimary {
+  /**
+   * Overtitle field in *ProjectGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Our Portfolio
+   * - **API ID Path**: project_grid_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Heading field in *ProjectGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Recent Projects
+   * - **API ID Path**: project_grid_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ProjectGridSlice → Items*
+ */
+export interface ProjectGridSliceSliceDefaultItem {
+  /**
+   * Project Title field in *ProjectGridSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Project Name
+   * - **API ID Path**: project_grid_slice.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Short Description field in *ProjectGridSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Brief description shown on hover
+   * - **API ID Path**: project_grid_slice.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Project Image field in *ProjectGridSlice → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_grid_slice.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ProjectGridSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectGridSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectGridSliceSliceDefaultPrimary>,
+  Simplify<ProjectGridSliceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ProjectGridSlice*
+ */
+type ProjectGridSliceSliceVariation = ProjectGridSliceSliceDefault;
+
+/**
+ * ProjectGridSlice Shared Slice
+ *
+ * - **API ID**: `project_grid_slice`
+ * - **Description**: ProjectGridSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectGridSliceSlice = prismic.SharedSlice<
+  "project_grid_slice",
+  ProjectGridSliceSliceVariation
+>;
+
+/**
  * Item in *ServicesSlice → Default → Primary → Service*
  */
 export interface ServicesSliceSliceDefaultPrimaryServiceItem {
@@ -917,6 +1008,16 @@ export interface TeamSliceSliceDefaultItem {
   position: prismic.KeyTextField;
 
   /**
+   * Description field in *TeamSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: One sentence about this team member
+   * - **API ID Path**: team_slice.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
    * Image field in *TeamSlice → Items*
    *
    * - **Field Type**: Image
@@ -1105,6 +1206,11 @@ declare module "@prismicio/client" {
       MissionSliceSliceDefaultPrimary,
       MissionSliceSliceVariation,
       MissionSliceSliceDefault,
+      ProjectGridSliceSlice,
+      ProjectGridSliceSliceDefaultPrimary,
+      ProjectGridSliceSliceDefaultItem,
+      ProjectGridSliceSliceVariation,
+      ProjectGridSliceSliceDefault,
       ServicesSliceSlice,
       ServicesSliceSliceDefaultPrimaryServiceItem,
       ServicesSliceSliceDefaultPrimary,

@@ -1,0 +1,56 @@
+{
+  "id": "project_grid_slice",
+  "type": "SharedSlice",
+  "name": "ProjectGridSlice",
+  "description": "ProjectGridSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "overtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Overtitle",
+            "placeholder": "Our Portfolio"
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Recent Projects"
+          }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Project Title",
+            "placeholder": "Project Name"
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Short Description",
+            "placeholder": "Brief description shown on hover"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Project Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

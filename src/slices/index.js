@@ -7,6 +7,7 @@ export const components = {
   about_us_slice: dynamic(() => import("./AboutUsSlice")),
   hero_slice: dynamic(() => import("./HeroSlice")),
   mission_slice: dynamic(() => import("./MissionSlice")),
+  project_grid_slice: dynamic(() => import("./ProjectGridSlice")),
   services_slice: dynamic(() => import("./ServicesSlice")),
   small_hero_slice: dynamic(() => import("./SmallHeroSlice")),
   team_slice: dynamic(() => import("./TeamSlice")),

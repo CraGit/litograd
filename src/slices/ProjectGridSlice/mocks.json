@@ -1,0 +1,66 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {
+        "title": "Stambena zgrada Centar",
+        "description": "Moderni stambeni kompleks u centru grada s 45 stanova i poslovnim prostorima.",
+        "image": {
+          "dimensions": {
+            "width": 600,
+            "height": 400
+          },
+          "alt": "Stambena zgrada Centar",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop"
+        }
+      },
+      {
+        "title": "Industrijska hala Zagreb",
+        "description": "Velika industrijska hala od 5000m² za logističke potrebe s najsuvremenijom tehnologijom.",
+        "image": {
+          "dimensions": {
+            "width": 600,
+            "height": 400
+          },
+          "alt": "Industrijska hala Zagreb",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
+        }
+      },
+      {
+        "title": "Vila Kvarner",
+        "description": "Ekskluzivna obiteljska vila s pogledom na more i privatnim bazenom.",
+        "image": {
+          "dimensions": {
+            "width": 600,
+            "height": 400
+          },
+          "alt": "Vila Kvarner",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&h=400&fit=crop"
+        }
+      },
+      {
+        "title": "Uredski centar Split",
+        "description": "Poslovni kompleks s A+ energetskim razredom i naprednim sustavima automatizacije.",
+        "image": {
+          "dimensions": {
+            "width": 600,
+            "height": 400
+          },
+          "alt": "Uredski centar Split",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
+        }
+      }
+    ],
+    "primary": {
+      "overtitle": "Naši projekti",
+      "heading": "Nedavno završeni radovi"
+    },
+    "slice_type": "project_grid_slice",
+    "id": "_Default"
+  }
+]
