@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "about_company_slice": {
+              "type": "SharedSlice"
+            },
             "mission_slice": {
               "type": "SharedSlice"
             },

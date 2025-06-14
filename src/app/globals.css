@@ -801,3 +801,152 @@ body.sidebar-open {
     line-height: 42px;
   }
 }
+
+/* About Company Section CSS */
+.about__five {
+  padding: 120px 0;
+}
+
+.about__five-image {
+  position: relative;
+}
+
+.about__five-image img {
+  width: 100%;
+}
+
+.about__five-right {
+  margin-left: 70px;
+}
+
+.about__five-right-title {
+  margin-bottom: 30px;
+}
+
+.about__five-right-title .subtitle {
+  color: var(--text-heading-color);
+  font-family: var(--heading-font);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding: 7px 15px;
+  border: 1px solid var(--border-color-2);
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.about__five-right-title h2 {
+  font-size: 56px;
+  line-height: 66px;
+  font-weight: 500;
+  color: var(--text-heading-color);
+  margin-bottom: 0;
+}
+
+.about__five-right .features {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about__five-right .features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.about__five-right .features h3 {
+  color: white;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.about__five-right p {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+.build_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary-color-1);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.build_button:hover {
+  background: var(--primary-color-2);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.build_button i {
+  font-size: 14px;
+}
+
+@media (max-width: 1199px) {
+  .about__five-right {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .about__five {
+    padding: 80px 0;
+  }
+  
+  .about__five-right-title h2 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  
+  .about__five-right .features h3 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about__five {
+    padding: 60px 0;
+  }
+  
+  .about__five-right-title h2 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  
+  .about__five-right .features {
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .about__five-right .features h3 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+}

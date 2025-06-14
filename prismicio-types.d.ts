@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | AboutCompanySliceSlice
   | MissionSliceSlice
   | SmallHeroSliceSlice
   | TestimonialsSliceSlice
@@ -291,6 +292,117 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AboutCompanySlice → Default → Primary*
+ */
+export interface AboutCompanySliceSliceDefaultPrimary {
+  /**
+   * Overtitle field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: About Our Company
+   * - **API ID Path**: about_company_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * Heading field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Trusted Partner in Construction and Design
+   * - **API ID Path**: about_company_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Content field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Our journey began with a commitment to excellence...
+   * - **API ID Path**: about_company_slice.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * CTA Label field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: See Projects
+   * - **API ID Path**: about_company_slice.default.primary.cta_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_label: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_company_slice.default.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Image Left field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_company_slice.default.primary.image_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_left: prismic.ImageField<never>;
+
+  /**
+   * Image Right (Background) field in *AboutCompanySlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_company_slice.default.primary.image_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_right: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutCompanySlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutCompanySliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutCompanySliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutCompanySlice*
+ */
+type AboutCompanySliceSliceVariation = AboutCompanySliceSliceDefault;
+
+/**
+ * AboutCompanySlice Shared Slice
+ *
+ * - **API ID**: `about_company_slice`
+ * - **Description**: AboutCompanySlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutCompanySliceSlice = prismic.SharedSlice<
+  "about_company_slice",
+  AboutCompanySliceSliceVariation
+>;
 
 /**
  * Primary content in *AboutUsSlice → Default → Primary*
@@ -886,6 +998,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      AboutCompanySliceSlice,
+      AboutCompanySliceSliceDefaultPrimary,
+      AboutCompanySliceSliceVariation,
+      AboutCompanySliceSliceDefault,
       AboutUsSliceSlice,
       AboutUsSliceSliceDefaultPrimary,
       AboutUsSliceSliceVariation,

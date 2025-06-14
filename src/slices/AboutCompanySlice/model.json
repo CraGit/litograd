@@ -1,0 +1,74 @@
+{
+  "id": "about_company_slice",
+  "type": "SharedSlice",
+  "name": "AboutCompanySlice",
+  "description": "AboutCompanySlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "overtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Overtitle",
+            "placeholder": "About Our Company"
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Trusted Partner in Construction and Design"
+          }
+        },
+        "content": {
+          "type": "Text",
+          "config": {
+            "label": "Content",
+            "placeholder": "Our journey began with a commitment to excellence..."
+          }
+        },
+        "feature_text": {
+          "type": "Text",
+          "config": {
+            "label": "Feature Text",
+            "placeholder": "Building Trust<br/>Since 1989"
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "image_left": {
+          "type": "Image",
+          "config": {
+            "label": "Image Left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_right": {
+          "type": "Image",
+          "config": {
+            "label": "Image Right (Background)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
