@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"overtitle": {
+				"__TYPE__": "TextContent",
+				"value": "SPREMNI ZA POČETAK?"
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Spremni ste za vaš sljedeći projekt?"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Kontaktirajte nas danas za besplatnu konzultaciju i detaljnu ponudu za vaše građevinske potrebe."
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "TextContent",
+				"value": "NAŠI PROJEKTI"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "/contact"
+				}
+			}
+		},
+		"items": []
+	}
+]

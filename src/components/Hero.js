@@ -1,5 +1,6 @@
 import React from "react";
 import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 
 export default function Hero({ slice }) {
   const { heading, subheading, image } = slice.primary;
@@ -42,7 +43,7 @@ export default function Hero({ slice }) {
                 className="banner__one-content-award bounce_y"
                 style={{ bottom: 40 }}
               >
-                <img
+                <Image
                   src="/assets/img/shape/award.png"
                   width={104}
                   height={104}

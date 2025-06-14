@@ -63,6 +63,7 @@ export type NavigationDocument<Lang extends string = string> =
 
 type PageDocumentDataSlicesSlice =
   | ServiceDetailSliceSlice
+  | CtaSliceSlice
   | MapSliceSlice
   | ContactSliceSlice
   | ProjectGridSliceSlice
@@ -700,6 +701,97 @@ export type ContactSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *CtaSlice → Default → Primary*
+ */
+export interface CtaSliceSliceDefaultPrimary {
+  /**
+   * CTA Overtitle field in *CtaSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: READY TO START?
+   * - **API ID Path**: cta_slice.default.primary.overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
+
+  /**
+   * CTA Title field in *CtaSlice → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Ready to Get Started?
+   * - **API ID Path**: cta_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * CTA Description field in *CtaSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Contact us today for a free consultation
+   * - **API ID Path**: cta_slice.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Text field in *CtaSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Get a Quote
+   * - **API ID Path**: cta_slice.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *CtaSlice → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_slice.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for CtaSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CtaSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CtaSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CtaSlice*
+ */
+type CtaSliceSliceVariation = CtaSliceSliceDefault;
+
+/**
+ * CtaSlice Shared Slice
+ *
+ * - **API ID**: `cta_slice`
+ * - **Description**: CtaSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CtaSliceSlice = prismic.SharedSlice<
+  "cta_slice",
+  CtaSliceSliceVariation
+>;
+
+/**
  * Primary content in *HeroSlice → Default → Primary*
  */
 export interface HeroSliceSliceDefaultPrimary {
@@ -999,34 +1091,59 @@ export type ProjectGridSliceSlice = prismic.SharedSlice<
  */
 export interface ServiceDetailSliceSliceDefaultPrimary {
   /**
-   * Service Image field in *ServiceDetailSlice → Default → Primary*
+   * Section Title (Optional) field in *ServiceDetailSlice → Default → Primary*
    *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_detail_slice.default.primary.service_image
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Field Type**: Text
+   * - **Placeholder**: Our Services
+   * - **API ID Path**: service_detail_slice.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  service_image: prismic.ImageField<never>;
+  section_title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ServiceDetailSlice → Items*
+ */
+export interface ServiceDetailSliceSliceDefaultItem {
+  /**
+   * Service Overtitle field in *ServiceDetailSlice → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: O NAŠOJ TVRTKI
+   * - **API ID Path**: service_detail_slice.items[].overtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  overtitle: prismic.KeyTextField;
 
   /**
-   * Service Title field in *ServiceDetailSlice → Default → Primary*
+   * Service Header field in *ServiceDetailSlice → Items*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: Service Title
-   * - **API ID Path**: service_detail_slice.default.primary.service_title
+   * - **Placeholder**: Iskustvo, kvaliteta i odgovornost
+   * - **API ID Path**: service_detail_slice.items[].header
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  service_title: prismic.TitleField;
+  header: prismic.TitleField;
 
   /**
-   * Service Content field in *ServiceDetailSlice → Default → Primary*
+   * Service Content field in *ServiceDetailSlice → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Service description and details...
-   * - **API ID Path**: service_detail_slice.default.primary.service_content
+   * - **API ID Path**: service_detail_slice.items[].content
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  service_content: prismic.RichTextField;
+  content: prismic.RichTextField;
+
+  /**
+   * Service Image field in *ServiceDetailSlice → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_detail_slice.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1039,7 +1156,7 @@ export interface ServiceDetailSliceSliceDefaultPrimary {
 export type ServiceDetailSliceSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<ServiceDetailSliceSliceDefaultPrimary>,
-  never
+  Simplify<ServiceDetailSliceSliceDefaultItem>
 >;
 
 /**
@@ -1470,6 +1587,10 @@ declare module "@prismicio/client" {
       ContactSliceSliceDefaultPrimary,
       ContactSliceSliceVariation,
       ContactSliceSliceDefault,
+      CtaSliceSlice,
+      CtaSliceSliceDefaultPrimary,
+      CtaSliceSliceVariation,
+      CtaSliceSliceDefault,
       HeroSliceSlice,
       HeroSliceSliceDefaultPrimary,
       HeroSliceSliceVariation,
@@ -1489,6 +1610,7 @@ declare module "@prismicio/client" {
       ProjectGridSliceSliceDefault,
       ServiceDetailSliceSlice,
       ServiceDetailSliceSliceDefaultPrimary,
+      ServiceDetailSliceSliceDefaultItem,
       ServiceDetailSliceSliceVariation,
       ServiceDetailSliceSliceDefault,
       ServicesSliceSlice,

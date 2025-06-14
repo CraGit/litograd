@@ -107,24 +107,16 @@ export default function ServiceDetail({ slice }) {
                     </div>
                   )}
 
-                  {service?.bullets && (
+                  {service?.bullets && service.bullets.length > 0 && (
                     <div className="services__details-features mt-30">
-                      <PrismicRichText
-                        field={service.bullets}
-                        components={{
-                          list: ({ children }) => (
-                            <ul className="services__details-area-list">
-                              {children}
-                            </ul>
-                          ),
-                          listItem: ({ children }) => (
-                            <li>
-                              <i className="flaticon-check-mark"></i>
-                              {children}
-                            </li>
-                          ),
-                        }}
-                      />
+                      <ul className="services__details-area-list">
+                        {service.bullets.map((bullet, bulletIndex) => (
+                          <li key={bulletIndex}>
+                            <i className="flaticon-check-mark"></i>
+                            {bullet.text}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
                 </div>

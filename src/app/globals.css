@@ -496,6 +496,27 @@ body.sidebar-open {
   color: var(--text-color);
 }
 
+/* Fix service links color */
+.services__one-item .more_btn,
+.services__one-item a.more_btn {
+  color: var(--text-heading-color) !important;
+  text-decoration: none !important;
+}
+
+.services__one-item:hover .more_btn,
+.services__one-item:hover a.more_btn {
+  color: var(--primary-color-1) !important;
+}
+
+.services__one-item h4 a {
+  color: var(--text-heading-color) !important;
+  text-decoration: none !important;
+}
+
+.services__one-item:hover h4 a {
+  color: var(--text-white) !important;
+}
+
 /* Ensure grid layout services have equal height */
 .services__one .row .col-lg-4 .services__one-item {
   height: 100%;

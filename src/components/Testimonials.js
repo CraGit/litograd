@@ -21,12 +21,27 @@ export default function Testimonials({ slice }) {
       nextEl: ".testimonial_next",
       prevEl: ".testimonial_prev",
     },
+    // Touch sensitivity settings for mobile
+    touchRatio: 0.7,
+    touchAngle: 45,
+    threshold: 10,
+    longSwipesRatio: 0.3,
+    longSwipesMs: 300,
+    followFinger: true,
+    allowTouchMove: true,
+    touchMoveStopPropagation: false,
+    simulateTouch: true,
+    touchStartPreventDefault: false,
     breakpoints: {
       0: {
         slidesPerView: 1,
+        touchRatio: 0.5, // Less sensitive on mobile
+        threshold: 15, // Higher threshold on mobile
       },
       768: {
         slidesPerView: 1.4,
+        touchRatio: 0.7,
+        threshold: 10,
       },
       1025: {
         slidesPerView: 2.4,

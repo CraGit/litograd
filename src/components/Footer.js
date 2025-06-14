@@ -4,6 +4,8 @@ import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import * as prismic from "@prismicio/client";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 const translations = {
   "en-us": {
@@ -24,12 +26,13 @@ export function Footer({ settings }) {
   const pathname = usePathname();
   // Extract current locale from pathname, fallback to 'en-us' if not found
   const pathSegments = pathname.split("/").filter(Boolean);
-  const currentLang =
+  const currentLocale =
     pathSegments[0] && ["en-us", "hr"].includes(pathSegments[0])
       ? pathSegments[0]
       : "en-us";
+  const homeUrl = `/${currentLocale}`;
 
-  const t = translations[currentLang] || translations["en-us"];
+  const t = translations[currentLocale] || translations["en-us"];
   return (
     <>
       <div className="footer__one">
@@ -52,14 +55,26 @@ export function Footer({ settings }) {
                       data-wow-delay="1.2s"
                     >
                       {settings.data.footer_cta_link?.url ? (
-                        <PrismicNextLink field={settings.data.footer_cta_link}>
+                        <Link
+                          href={
+                            settings.data.footer_cta_link.url.startsWith("/")
+                              ? `${homeUrl}${settings.data.footer_cta_link.url}`
+                              : settings.data.footer_cta_link.url
+                          }
+                        >
                           <i className="flaticon-right-up"></i>
-                        </PrismicNextLink>
+                        </Link>
                       ) : (
                         settings.data.quote?.url && (
-                          <PrismicNextLink field={settings.data.quote}>
+                          <Link
+                            href={
+                              settings.data.quote.url.startsWith("/")
+                                ? `${homeUrl}${settings.data.quote.url}`
+                                : settings.data.quote.url
+                            }
+                          >
                             <i className="flaticon-right-up"></i>
-                          </PrismicNextLink>
+                          </Link>
                         )
                       )}
                     </div>
@@ -73,20 +88,19 @@ export function Footer({ settings }) {
                   <div className="col-lg-4 col-sm-6">
                     <div className="footer__one-widget mr-40">
                       {settings.data.logo?.url && (
-                        <PrismicNextLink
-                          field={{ link_type: "Web", url: "/" }}
-                          className="logo"
-                        >
-                          <img
+                        <Link href={homeUrl} className="logo">
+                          <Image
                             src={settings.data.logo.url}
                             alt={settings.data.logo.alt || "logo"}
+                            width={180}
+                            height={60}
                             style={{
                               filter: "invert(1)",
                               width: "180px",
                               height: "auto",
                             }}
                           />
-                        </PrismicNextLink>
+                        </Link>
                       )}
                     </div>
                   </div>
@@ -134,10 +148,12 @@ export function Footer({ settings }) {
                       <div className="footer-widget-menu">
                         <ul>
                           <li>
-                            <a href="/privacy-policy">{t.privacyPolicy}</a>
+                            <Link href={`${homeUrl}/privacy-policy`}>
+                              {t.privacyPolicy}
+                            </Link>
                           </li>
                           <li>
-                            <a href="/terms">{t.terms}</a>
+                            <Link href={`${homeUrl}/terms`}>{t.terms}</Link>
                           </li>
                         </ul>
                       </div>

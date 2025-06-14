@@ -1,0 +1,215 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"overtitle",
+						{
+							"__TYPE__": "TextContent",
+							"value": "O NAŠOJ TVRTKI"
+						}
+					],
+					[
+						"header",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading2",
+									"content": {
+										"text": "Iskustvo, kvaliteta i odgovornost"
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Naša tvrtka je specijalizirana za visokokvalitetne građevinske usluge prilagođene jedinstvenim potrebama naših klijenata. S dugogodišnjim iskustvom u industriji, naš tim stručnjaka posvećen je ostvarivanju vaše vizije."
+									}
+								},
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Bilo da tražite izgradnju nove strukture, renoviranje postojećeg prostora ili specijalizirane građevinske usluge, tu smo da vam pomognemo."
+									}
+								}
+							]
+						}
+					],
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+								"width": 4016,
+								"height": 6016
+							},
+							"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+							"width": 4016,
+							"height": 6016,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"alt": "Construction service main image",
+							"thumbnails": {}
+						}
+					],
+					[
+						"bullets",
+						{
+							"__TYPE__": "GroupContent",
+							"value": [
+								{
+									"__TYPE__": "GroupItemContent",
+									"value": [
+										[
+											"text",
+											{
+												"__TYPE__": "TextContent",
+												"value": "Naši stručni profesionalci donose godine iskustva u svaki projekt"
+											}
+										]
+									]
+								},
+								{
+									"__TYPE__": "GroupItemContent",
+									"value": [
+										[
+											"text",
+											{
+												"__TYPE__": "TextContent",
+												"value": "Vodimo u građevinskoj industriji s najboljim uslugama"
+											}
+										]
+									]
+								}
+							]
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"overtitle",
+						{
+							"__TYPE__": "TextContent",
+							"value": "GRADIMO POVJERENJE"
+						}
+					],
+					[
+						"header",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading3",
+									"content": {
+										"text": "Gradimo povjerenje od 1994."
+									}
+								}
+							]
+						}
+					],
+					[
+						"content",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Litograd d.o.o. je obiteljsko poduzeće koje djeluje od 1994. godine. Na temelju tri desetljeća iskustva izgradili smo reputaciju pouzdanog partnera u građevinskoj industriji."
+									}
+								},
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Danas zapošljavamo preko 20 djelatnika u Hrvatskoj i više od 15 u našoj podružnici u Njemačkoj."
+									}
+								}
+							]
+						}
+					],
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5",
+								"width": 4000,
+								"height": 6000
+							},
+							"url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5",
+							"width": 4000,
+							"height": 6000,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"alt": "Construction gallery image",
+							"thumbnails": {}
+						}
+					],
+					[
+						"bullets",
+						{
+							"__TYPE__": "GroupContent",
+							"value": [
+								{
+									"__TYPE__": "GroupItemContent",
+									"value": [
+										[
+											"text",
+											{
+												"__TYPE__": "TextContent",
+												"value": "Transparentno poslovanje bez skrivenih troškova"
+											}
+										]
+									]
+								},
+								{
+									"__TYPE__": "GroupItemContent",
+									"value": [
+										[
+											"text",
+											{
+												"__TYPE__": "TextContent",
+												"value": "Pridržavamo se strogih sigurnosnih standarda na svim gradilištima"
+											}
+										]
+									]
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

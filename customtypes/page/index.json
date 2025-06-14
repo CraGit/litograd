@@ -30,6 +30,9 @@
             "service_detail_slice": {
               "type": "SharedSlice"
             },
+            "cta_slice": {
+              "type": "SharedSlice"
+            },
             "map_slice": {
               "type": "SharedSlice"
             },

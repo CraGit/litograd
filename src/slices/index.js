@@ -6,6 +6,7 @@ export const components = {
   about_company_slice: dynamic(() => import("./AboutCompanySlice")),
   about_us_slice: dynamic(() => import("./AboutUsSlice")),
   contact_slice: dynamic(() => import("./ContactSlice")),
+  cta_slice: dynamic(() => import("./CtaSlice")),
   hero_slice: dynamic(() => import("./HeroSlice")),
   map_slice: dynamic(() => import("./MapSlice")),
   mission_slice: dynamic(() => import("./MissionSlice")),

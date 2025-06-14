@@ -4,6 +4,7 @@ import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { HeaderClient } from "./HeaderClient";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -41,7 +42,12 @@ export function Header({ locales = [], navigation, settings }) {
                   {prismic.isFilled.image(settings.data.logo) ? (
                     <PrismicNextImage field={settings.data.logo} alt="Logo" />
                   ) : (
-                    <img src="/assets/img/logo-1.png" alt="BuildGo" />
+                    <Image
+                      src="/assets/img/logo-1.png"
+                      alt="BuildGo"
+                      width={150}
+                      height={50}
+                    />
                   )}
                 </Link>
               </div>
@@ -106,7 +112,12 @@ export function Header({ locales = [], navigation, settings }) {
             {prismic.isFilled.image(settings.data.logo) ? (
               <PrismicNextImage field={settings.data.logo} alt="Logo" />
             ) : (
-              <img src="/assets/img/logo-2.png" alt="BuildGo" />
+              <Image
+                src="/assets/img/logo-2.png"
+                alt="BuildGo"
+                width={150}
+                height={50}
+              />
             )}
           </Link>
         </div>
