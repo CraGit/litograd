@@ -1,5 +1,6 @@
 import { SliceZone } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
+import { notFound } from "next/navigation";
 
 import { getLocales } from "@/lib/getLocales";
 import { reverseLocaleLookup } from "@/i18n";
@@ -37,6 +38,16 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   try {
     const { uid, lang } = await params;
+
+    // Skip common browser requests that aren't pages
+    if (
+      uid === "favicon.ico" ||
+      uid === "robots.txt" ||
+      uid === "sitemap.xml"
+    ) {
+      notFound();
+    }
+
     const client = createClient();
 
     const page = await client.getByUID("page", uid, {

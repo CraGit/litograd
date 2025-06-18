@@ -1,23 +1,63 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function ClientLayout({ children }) {
-  useEffect(() => {
-    // Dynamically import Bootstrap JavaScript
-    import("bootstrap/dist/js/bootstrap.min.js");
+  const [isInitialized, setIsInitialized] = useState(false);
 
-    // Dynamically import WOW.js and initialize
-    import("wowjs")
-      .then((WOWModule) => {
-        const WOW = WOWModule.WOW || WOWModule.default;
-        if (WOW) {
-          new WOW({ live: false }).init();
+  useEffect(() => {
+    let timeoutId;
+
+    const initializeScripts = () => {
+      // Ensure DOM is completely ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeScripts);
+        return;
+      }
+
+      // Wait a bit more to ensure all elements are rendered
+      timeoutId = setTimeout(async () => {
+        try {
+          // Dynamically import Bootstrap JavaScript
+          await import("bootstrap/dist/js/bootstrap.min.js");
+
+          // Dynamically import WOW.js and initialize
+          const WOWModule = await import("wowjs");
+          const WOW = WOWModule.WOW || WOWModule.default;
+
+          if (WOW) {
+            // Initialize WOW with mobile-friendly settings
+            new WOW({
+              live: false,
+              mobile: true,
+              offset: 50,
+              animateClass: "animated",
+            }).init();
+          }
+
+          setIsInitialized(true);
+        } catch (error) {
+          console.log("Script initialization error:", error);
+          setIsInitialized(true);
         }
-      })
-      .catch((error) => {
-        console.log("WOW.js not available:", error);
-      });
+      }, 100);
+    };
+
+    initializeScripts();
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      document.removeEventListener("DOMContentLoaded", initializeScripts);
+    };
   }, []);
+
+  // Add initialization class to body
+  useEffect(() => {
+    if (isInitialized) {
+      document.body.classList.add("scripts-initialized");
+    }
+  }, [isInitialized]);
 
   return <>{children}</>;
 }

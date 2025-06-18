@@ -40,7 +40,7 @@ export function Header({ locales = [], navigation, settings }) {
                 <Link href={homeUrl}>
                   <span className="visually-hidden">Go to homepage</span>
                   {prismic.isFilled.image(settings.data.logo) ? (
-                    <PrismicNextImage field={settings.data.logo} alt="Logo" />
+                    <PrismicNextImage field={settings.data.logo} alt="" />
                   ) : (
                     <Image
                       src="/assets/img/logo-1.png"
@@ -110,7 +110,7 @@ export function Header({ locales = [], navigation, settings }) {
         <div className="header__area-menubar-right-sidebar-popup-logo">
           <Link href={homeUrl}>
             {prismic.isFilled.image(settings.data.logo) ? (
-              <PrismicNextImage field={settings.data.logo} alt="Logo" />
+              <PrismicNextImage field={settings.data.logo} alt="" />
             ) : (
               <Image
                 src="/assets/img/logo-2.png"

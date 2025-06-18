@@ -2147,3 +2147,232 @@ body.sidebar-open {
     font-size: 14px;
   }
 }
+
+/* Mobile Loading and Initialization Fix */
+body:not(.scripts-initialized) {
+  overflow-x: hidden;
+}
+
+body:not(.scripts-initialized) .wow {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+body.scripts-initialized .wow {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Loading indicator for initial page load */
+body:not(.scripts-initialized)::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  background-size: 200% 100%;
+  animation: loadingBar 2s ease-in-out infinite;
+  z-index: 10000;
+}
+
+@keyframes loadingBar {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Hide loading bar once initialized */
+body.scripts-initialized::before {
+  display: none;
+}
+
+/* Ensure smooth scrolling on mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Fix potential mobile stuck states */
+.swiper-container,
+.testimonial_slide {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Ensure elements are interactive after initialization */
+body:not(.scripts-initialized) .swiper-container {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+body.scripts-initialized .swiper-container {
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  a, button, input, textarea, select {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Ensure proper mobile viewport */
+  body:not(.scripts-initialized) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+/* AGGRESSIVE MOBILE MENU FIXES */
+/* Force reset mobile menu stuck states */
+.header__area-menubar-right-sidebar-popup {
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease !important;
+  will-change: transform, opacity, visibility;
+}
+
+.header__area-menubar-right-sidebar-popup:not(.active) {
+  transform: translateX(100%) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.header__area-menubar-right-sidebar-popup.active {
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.sidebar-overlay {
+  transition: width 0.3s ease, visibility 0.3s ease !important;
+  will-change: width, visibility;
+}
+
+.sidebar-overlay:not(.show) {
+  width: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.sidebar-overlay.show {
+  width: 100% !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.sidebar-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+/* Mobile menu button improvements */
+.header__area-menubar-right-sidebar-icon {
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  user-select: none !important;
+}
+
+.header__area-menubar-right-sidebar-icon i {
+  pointer-events: none !important;
+}
+
+/* Close button improvements */
+.sidebar-close-btn {
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  user-select: none !important;
+  z-index: 99999 !important;
+}
+
+.sidebar-close-btn i {
+  pointer-events: none !important;
+}
+
+/* Overlay click improvements */
+.sidebar-overlay {
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+}
+
+/* Force proper z-index hierarchy */
+.header__area-menubar-right-sidebar-popup {
+  z-index: 99998 !important;
+}
+
+.sidebar-overlay {
+  z-index: 99997 !important;
+}
+
+/* Additional mobile-specific resets */
+@media (max-width: 991px) {
+  /* Ensure mobile menu shows properly */
+  .header__area-menubar-right-sidebar-icon {
+    display: inline-flex !important;
+  }
+  
+  /* Hide desktop menu */
+  .header__area-menubar-center {
+    display: none !important;
+  }
+  
+  /* Reset any transform interference */
+  .header__area {
+    transform: none !important;
+  }
+  
+  /* Ensure proper mobile layout */
+  .header__area-menubar {
+    position: relative !important;
+  }
+}
+
+/* Emergency reset for completely stuck states */
+.mobile-menu-reset {
+  .header__area-menubar-right-sidebar-popup {
+    transform: translateX(100%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  .sidebar-overlay {
+    width: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  body {
+    overflow: auto !important;
+    position: static !important;
+  }
+}

@@ -56,11 +56,7 @@ export default function Hero({ slice }) {
       </div>
       <div className="banner__one-image">
         {image?.url && (
-          <PrismicNextImage
-            className="img_full"
-            field={image}
-            alt={image.alt || "Hero image"}
-          />
+          <PrismicNextImage className="img_full" field={image} alt="" />
         )}
       </div>
     </div>

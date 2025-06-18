@@ -1,32 +1,51 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Navigation } from "swiper/modules";
 
 export default function Services({ slice }) {
   const { heading, overtitle, content, service, button } = slice.primary;
+  const [swiperReady, setSwiperReady] = useState(false);
 
   // Don't use swiper if there are 3 or fewer services
   const shouldUseSwiper = service && service.length > 3;
+
+  useEffect(() => {
+    // Delay Swiper initialization for services
+    if (shouldUseSwiper) {
+      const timer = setTimeout(() => {
+        setSwiperReady(true);
+      }, 600);
+      return () => clearTimeout(timer);
+    } else {
+      setSwiperReady(true);
+    }
+  }, [shouldUseSwiper]);
 
   const slideControl = {
     spaceBetween: 25,
     slidesPerView: 4,
     speed: 1000,
     loop: shouldUseSwiper && service.length > 4,
-    autoplay: shouldUseSwiper
-      ? {
-          delay: 4000,
-          reverseDirection: false,
-          disableOnInteraction: false,
-        }
-      : false,
+    autoplay:
+      shouldUseSwiper && swiperReady
+        ? {
+            delay: 4000,
+            reverseDirection: false,
+            disableOnInteraction: false,
+          }
+        : false,
     navigation: {
       nextEl: ".service_next",
       prevEl: ".service_prev",
     },
+    // Prevent initialization issues
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    init: swiperReady,
     breakpoints: {
       0: {
         slidesPerView: 1,

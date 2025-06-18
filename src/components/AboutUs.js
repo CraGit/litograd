@@ -48,7 +48,7 @@ export default function AboutUs({ slice }) {
                       <PrismicNextImage
                         field={imageLeft}
                         className="md_img_full"
-                        alt={imageLeft.alt || "About image"}
+                        alt=""
                       />
                     )}
                   </div>
@@ -103,7 +103,7 @@ export default function AboutUs({ slice }) {
                 <PrismicNextImage
                   field={imageRight}
                   className="wow img_right_animation lg_img_full"
-                  alt={imageRight.alt || "About main image"}
+                  alt=""
                 />
               )}
             </div>

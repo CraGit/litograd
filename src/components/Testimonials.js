@@ -1,22 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Navigation } from "swiper/modules";
 
 export default function Testimonials({ slice }) {
   const { heading, overtitle, testimonial } = slice.primary;
+  const [swiperReady, setSwiperReady] = useState(false);
+
+  useEffect(() => {
+    // Delay Swiper initialization to prevent stuck state on mobile
+    const timer = setTimeout(() => {
+      setSwiperReady(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const slideControl = {
     spaceBetween: 25,
     centeredSlides: true,
     speed: 1000,
     loop: true,
-    autoplay: {
-      delay: 4000,
-      reverseDirection: false,
-      disableOnInteraction: false,
-    },
+    autoplay: swiperReady
+      ? {
+          delay: 4000,
+          reverseDirection: false,
+          disableOnInteraction: false,
+        }
+      : false,
     navigation: {
       nextEl: ".testimonial_next",
       prevEl: ".testimonial_prev",
@@ -32,6 +44,11 @@ export default function Testimonials({ slice }) {
     touchMoveStopPropagation: false,
     simulateTouch: true,
     touchStartPreventDefault: false,
+    // Prevent initialization issues
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    init: swiperReady, // Only initialize when ready
     breakpoints: {
       0: {
         slidesPerView: 1,

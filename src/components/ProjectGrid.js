@@ -32,7 +32,7 @@ export default function ProjectGrid({ slice }) {
                   {item.image && (
                     <PrismicNextImage
                       field={item.image}
-                      alt={item.title || ""}
+                      alt=""
                       className="img_full"
                     />
                   )}

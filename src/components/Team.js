@@ -30,10 +30,7 @@ export default function Team({ slice }) {
                 <div className="team__area-item">
                   {item.image && (
                     <div className="team__area-item-image">
-                      <PrismicNextImage
-                        field={item.image}
-                        alt={item.name || ""}
-                      />
+                      <PrismicNextImage field={item.image} alt="" />
                     </div>
                   )}
                   <div className="team__area-item-content">
