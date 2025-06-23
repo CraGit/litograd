@@ -13,12 +13,15 @@ export function LanguageSwitcher({ locales = [] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log("LanguageSwitcher: Received locales:", locales);
-
-  // Fallback locales if none provided
+  // Fallback locales if none provided - ensure we always have both languages
   const fallbackLocales = [
-    { lang: "en-us", lang_name: "English" },
-    { lang: "hr", lang_name: "Hrvatski" },
+    { lang: "hr", lang_name: "Hrvatski", url: "/hr", id: "fallback-hr" },
+    {
+      lang: "en-us",
+      lang_name: "English",
+      url: "/en-us",
+      id: "fallback-en-us",
+    },
   ];
 
   // Ensure we have valid locales with proper structure
@@ -28,14 +31,12 @@ export function LanguageSwitcher({ locales = [] }) {
       : fallbackLocales;
 
   // Find current language from pathname or use first available
-  const pathLang = pathname.split("/")[1]; // Extract lang from URL like /en-us/...
+  const pathLang = pathname.split("/")[1]; // Extract lang from URL like /en-us/ or /hr/
+
   const currentLocale =
     actualLocales.find((locale) => locale.lang === pathLang) ||
     actualLocales[0];
-  const currentLang = currentLocale?.lang || "en-us";
-
-  console.log("LanguageSwitcher: Current language:", currentLang);
-  console.log("LanguageSwitcher: Available locales:", actualLocales);
+  const currentLang = currentLocale?.lang || "hr";
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -95,19 +96,32 @@ export function LanguageSwitcher({ locales = [] }) {
           >
             {actualLocales.map((locale) => {
               if (!locale || !locale.lang) {
-                console.warn("LanguageSwitcher: Invalid locale found:", locale);
                 return null;
               }
 
-              const newPath = pathname.replace(
-                /^\/(en-us|hr)/,
-                `/${locale.lang}`
-              );
+              // Determine the target URL
+              let targetUrl;
+
+              // Check if this is a fallback entry (no alternate language version exists)
+              if (locale.id && locale.id.startsWith("fallback-")) {
+                // This is a fallback entry, use the generated URL as-is
+                targetUrl = locale.url;
+              } else if (locale.url && locale.url.startsWith("/")) {
+                // Document has a specific URL, use it directly
+                targetUrl = locale.url;
+              } else {
+                // Construct URL by replacing language in current path
+                const targetLangCode = locale.lang;
+                targetUrl = pathname.replace(
+                  /^\/(en-us|hr)/,
+                  `/${targetLangCode}`
+                );
+              }
 
               return (
                 <li key={locale.lang}>
                   <Link
-                    href={newPath}
+                    href={targetUrl}
                     onClick={() => setIsOpen(false)}
                     style={{
                       display: "block",

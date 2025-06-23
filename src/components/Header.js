@@ -18,15 +18,12 @@ export function Header({ locales = [], navigation, settings }) {
   const pathname = usePathname();
   // Extract current locale from pathname, fallback to 'en-us' if not found
   const pathSegments = pathname.split("/").filter(Boolean);
+
   const currentLocale =
     pathSegments[0] && ["en-us", "hr"].includes(pathSegments[0])
       ? pathSegments[0]
       : "en-us";
   const homeUrl = `/${currentLocale}`;
-
-  console.log("Header - current locale:", currentLocale);
-  console.log("Header - locales received:", locales);
-  console.log("Header - navigation:", navigation);
 
   return (
     <>
@@ -75,20 +72,13 @@ export function Header({ locales = [], navigation, settings }) {
 
               {/* CTA Button */}
               <div className="header__area-menubar-right-btn one">
-                {prismic.isFilled.link(settings.data.quote) ? (
-                  <PrismicNextLink
-                    field={settings.data.quote}
-                    className="build_button"
-                  >
-                    {settings.data.quote.text || "Get Quote"}
-                    <i className="flaticon-right-up"></i>
-                  </PrismicNextLink>
-                ) : (
-                  <a href="#contact" className="build_button">
-                    Get Quote
-                    <i className="flaticon-right-up"></i>
-                  </a>
-                )}
+                <Link
+                  href={`/${currentLocale}/kontakt`}
+                  className="build_button"
+                >
+                  {currentLocale === "hr" ? "Zatraži ponudu" : "Get Quote"}
+                  <i className="flaticon-right-up"></i>
+                </Link>
               </div>
 
               {/* Mobile Menu Toggle */}
@@ -142,14 +132,16 @@ export function Header({ locales = [], navigation, settings }) {
         </div>
 
         <div className="header__area-menubar-right-sidebar-popup-contact">
-          <h4>Get In Touch</h4>
+          <h4>{currentLocale === "hr" ? "Kontakt" : "Get In Touch"}</h4>
           <div className="header__area-menubar-right-sidebar-popup-contact-item">
             <div className="header__area-menubar-right-sidebar-popup-contact-item-icon">
               <i className="fas fa-phone"></i>
             </div>
             <div className="header__area-menubar-right-sidebar-popup-contact-item-content">
-              <span>Call Now</span>
-              <h6>+385 1 234 5678</h6>
+              <span>
+                {currentLocale === "hr" ? "Pozovite nas" : "Call Now"}
+              </span>
+              <h6>{settings?.data?.phone || "+385 98 9770 539"}</h6>
             </div>
           </div>
           <div className="header__area-menubar-right-sidebar-popup-contact-item">
@@ -157,8 +149,8 @@ export function Header({ locales = [], navigation, settings }) {
               <i className="fas fa-envelope"></i>
             </div>
             <div className="header__area-menubar-right-sidebar-popup-contact-item-content">
-              <span>Quick Email</span>
-              <h6>info@buildgo.hr</h6>
+              <span>{currentLocale === "hr" ? "Email" : "Quick Email"}</span>
+              <h6>{settings?.data?.email || "info@litograd.hr"}</h6>
             </div>
           </div>
           <div className="header__area-menubar-right-sidebar-popup-contact-item">
@@ -166,8 +158,16 @@ export function Header({ locales = [], navigation, settings }) {
               <i className="fas fa-map-marker-alt"></i>
             </div>
             <div className="header__area-menubar-right-sidebar-popup-contact-item-content">
-              <span>Office Address</span>
-              <h6>Zagreb, Croatia</h6>
+              <span>
+                {currentLocale === "hr" ? "Adresa" : "Office Address"}
+              </span>
+              <h6>
+                {settings?.data?.address && settings?.data?.place
+                  ? `${settings.data.address}, ${settings.data.place}`
+                  : settings?.data?.address ||
+                    settings?.data?.place ||
+                    "Don Rafaela Radice 4, 21251 Žrnovnica, Croatia"}
+              </h6>
             </div>
           </div>
         </div>

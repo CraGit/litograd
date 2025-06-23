@@ -1,6 +1,7 @@
 /**
- * Returns an array of document metadata containing each locale a document has
- * been translated into.
+ * Returns an array of document metadata containing each locale available in the repository.
+ * If a document has translations, it returns those; otherwise it provides fallback entries
+ * for all repository languages to enable language switching.
  *
  * A `lang_name` property is included in each document containing the document's
  * locale name as it is configured in the Prismic repository.
@@ -22,13 +23,6 @@ export async function getLocales(doc, client) {
       console.error("getLocales: client parameter is required");
       return [];
     }
-
-    console.log("getLocales: Processing document:", {
-      type: doc.type,
-      lang: doc.lang,
-      uid: doc.uid,
-      alternateLanguagesCount: doc.alternate_languages?.length || 0,
-    });
 
     const [repository, altDocs] = await Promise.all([
       client.getRepository().catch((error) => {
@@ -56,30 +50,62 @@ export async function getLocales(doc, client) {
         : Promise.resolve([]),
     ]);
 
-    console.log("getLocales: Repository languages:", repository.languages);
-    console.log("getLocales: Alternate documents found:", altDocs.length);
-
     const allDocs = [doc, ...altDocs];
 
-    return allDocs.map((currentDoc) => {
-      const language = repository.languages.find(
-        (lang) => lang.id === currentDoc.lang
-      );
-
-      if (!language) {
-        console.warn(
-          `getLocales: Language ${currentDoc.lang} not found in repository languages`
+    // If we have alternate language versions, return them
+    if (altDocs.length > 0) {
+      return allDocs.map((currentDoc) => {
+        const language = repository.languages.find(
+          (lang) => lang.id === currentDoc.lang
         );
+
+        if (!language) {
+          console.warn(
+            `getLocales: Language ${currentDoc.lang} not found in repository languages`
+          );
+          return {
+            ...currentDoc,
+            lang_name: currentDoc.lang, // Fallback to lang ID
+          };
+        }
+
         return {
           ...currentDoc,
-          lang_name: currentDoc.lang, // Fallback to lang ID
+          lang_name: language.name,
+        };
+      });
+    }
+
+    // If no alternate versions exist, create fallback entries for all repository languages
+    return repository.languages.map((language) => {
+      if (language.id === doc.lang) {
+        // Return the current document with lang_name
+        return {
+          ...doc,
+          lang_name: language.name,
+        };
+      } else {
+        // Create a fallback entry for missing languages
+        // This will link to the homepage in that language
+        const langCode = language.id; // Use the language ID directly
+        return {
+          id: `fallback-${language.id}`,
+          uid: null,
+          url: `/${langCode}`,
+          type: doc.type,
+          lang: language.id,
+          alternate_languages: [],
+          lang_name: language.name,
+          data: {},
+          // Add other required fields with sensible defaults
+          href: "",
+          tags: [],
+          first_publication_date: doc.first_publication_date,
+          last_publication_date: doc.last_publication_date,
+          slugs: [],
+          linked_documents: [],
         };
       }
-
-      return {
-        ...currentDoc,
-        lang_name: language.name,
-      };
     });
   } catch (error) {
     console.error("getLocales: Unexpected error:", error);
