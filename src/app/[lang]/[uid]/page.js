@@ -15,22 +15,41 @@ import { components } from "@/slices";
 export async function generateMetadata({ params }) {
   const { uid, lang } = await params;
   const client = createClient();
-  const page = await client.getByUID("page", uid, { lang });
+
+  // Try to get as project first, then as page
+  let document;
+
+  try {
+    document = await client.getByUID("project", uid, { lang });
+  } catch {
+    try {
+      document = await client.getByUID("page", uid, { lang });
+    } catch {
+      return {
+        title: "Page Not Found",
+        description: "The requested page could not be found",
+      };
+    }
+  }
 
   return {
-    title: page.data.meta_title || prismic.asText(page.data.title),
-    description: page.data.meta_description,
+    title: document.data.meta_title || prismic.asText(document.data.title),
+    description: document.data.meta_description,
     openGraph: {
-      title: page.data.meta_title || prismic.asText(page.data.title),
-      description: page.data.meta_description,
-      images: page.data.meta_image?.url ? [page.data.meta_image.url] : [],
+      title: document.data.meta_title || prismic.asText(document.data.title),
+      description: document.data.meta_description,
+      images: document.data.meta_image?.url
+        ? [document.data.meta_image.url]
+        : [],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: page.data.meta_title || prismic.asText(page.data.title),
-      description: page.data.meta_description,
-      images: page.data.meta_image?.url ? [page.data.meta_image.url] : [],
+      title: document.data.meta_title || prismic.asText(document.data.title),
+      description: document.data.meta_description,
+      images: document.data.meta_image?.url
+        ? [document.data.meta_image.url]
+        : [],
     },
   };
 }
@@ -50,9 +69,23 @@ export default async function Page({ params }) {
 
     const client = createClient();
 
-    const page = await client.getByUID("page", uid, {
-      lang: reverseLocaleLookup(lang),
-    });
+    // Try to get as project first, then as page
+    let document;
+
+    try {
+      document = await client.getByUID("project", uid, {
+        lang: reverseLocaleLookup(lang),
+      });
+    } catch {
+      try {
+        document = await client.getByUID("page", uid, {
+          lang: reverseLocaleLookup(lang),
+        });
+      } catch {
+        notFound();
+      }
+    }
+
     const navigation = await client.getSingle("navigation", {
       lang: reverseLocaleLookup(lang),
     });
@@ -60,14 +93,15 @@ export default async function Page({ params }) {
       lang: reverseLocaleLookup(lang),
     });
 
-    const locales = await getLocales(page, client);
+    const locales = await getLocales(document, client);
 
     console.log("Page: Locales data:", locales);
+    console.log("Document type:", document.type);
 
     return (
       <Layout locales={locales} navigation={navigation} settings={settings}>
         <SliceZone
-          slices={page.data.slices}
+          slices={document.data.slices}
           components={components}
           context={{
             settings,
@@ -85,15 +119,27 @@ export default async function Page({ params }) {
 export async function generateStaticParams() {
   const client = createClient();
 
+  // Get both pages and projects
   const pages = await client.getAllByType("page", {
     lang: "*",
     filters: [prismic.filter.not("my.page.uid", "home")],
   });
 
-  return pages.map((page) => {
+  let projects = [];
+  try {
+    projects = await client.getAllByType("project", {
+      lang: "*",
+    });
+  } catch (error) {
+    console.log("No projects found or project type doesn't exist yet");
+  }
+
+  const allDocuments = [...pages, ...projects];
+
+  return allDocuments.map((doc) => {
     return {
-      uid: page.uid,
-      lang: page.lang,
+      uid: doc.uid,
+      lang: doc.lang,
     };
   });
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 export default function ProjectGrid({ slice }) {
   const { overtitle, heading } = slice.primary;
@@ -28,19 +28,43 @@ export default function ProjectGrid({ slice }) {
                 className="col-lg-6 col-md-6 mb-30 wow fadeInUp"
                 data-wow-delay={`.${6 + index * 3}s`}
               >
-                <div className="portfolio__three-item">
-                  {item.image && (
-                    <PrismicNextImage
-                      field={item.image}
-                      alt=""
-                      className="img_full"
-                    />
-                  )}
-                  <div className="portfolio__three-item-content">
-                    {item.title && <h4>{item.title}</h4>}
-                    {item.description && <p>{item.description}</p>}
+                {item.project_link && item.project_link.uid ? (
+                  <PrismicNextLink
+                    field={item.project_link}
+                    className="portfolio__three-item-link"
+                  >
+                    <div className="portfolio__three-item">
+                      {item.image && (
+                        <PrismicNextImage
+                          field={item.image}
+                          alt=""
+                          className="img_full"
+                        />
+                      )}
+                      <div className="portfolio__three-item-content">
+                        {item.title && <h4>{item.title}</h4>}
+                        {item.description && <p>{item.description}</p>}
+                        <div className="project__grid-link">
+                          <i className="flaticon-right-up"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </PrismicNextLink>
+                ) : (
+                  <div className="portfolio__three-item">
+                    {item.image && (
+                      <PrismicNextImage
+                        field={item.image}
+                        alt=""
+                        className="img_full"
+                      />
+                    )}
+                    <div className="portfolio__three-item-content">
+                      {item.title && <h4>{item.title}</h4>}
+                      {item.description && <p>{item.description}</p>}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             ))}
         </div>

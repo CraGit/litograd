@@ -1,0 +1,80 @@
+[
+  {
+    "variation": "default",
+    "version": "sktwi1xtmkfgx8626",
+    "items": [
+      {
+        "image": {
+          "dimensions": {
+            "width": 800,
+            "height": 600
+          },
+          "alt": "Project photo 1",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop"
+        }
+      },
+      {
+        "image": {
+          "dimensions": {
+            "width": 800,
+            "height": 600
+          },
+          "alt": "Project photo 2",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+        }
+      },
+      {
+        "image": {
+          "dimensions": {
+            "width": 800,
+            "height": 600
+          },
+          "alt": "Project photo 3",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=800&h=600&fit=crop"
+        }
+      },
+      {
+        "image": {
+          "dimensions": {
+            "width": 800,
+            "height": 600
+          },
+          "alt": "Project photo 4",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop"
+        }
+      },
+      {
+        "image": {
+          "dimensions": {
+            "width": 800,
+            "height": 600
+          },
+          "alt": "Project photo 5",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop"
+        }
+      },
+      {
+        "image": {
+          "dimensions": {
+            "width": 800,
+            "height": 600
+          },
+          "alt": "Project photo 6",
+          "copyright": null,
+          "url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop"
+        }
+      }
+    ],
+    "primary": {
+      "overtitle": "Galerija projekta",
+      "heading": "Fotografije s gradilišta"
+    },
+    "slice_type": "gallery_slice",
+    "id": "_Default"
+  }
+]

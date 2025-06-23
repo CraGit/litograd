@@ -49,6 +49,15 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "project_link": {
+          "type": "Link",
+          "config": {
+            "label": "Project Link",
+            "placeholder": "Link to project detail page",
+            "select": "document",
+            "customtypes": ["project"]
+          }
         }
       }
     }
